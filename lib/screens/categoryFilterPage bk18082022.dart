@@ -221,10 +221,9 @@ class _CategoryFilterPageState extends State<CategoryFilterPage> {
                     padding: const EdgeInsets.symmetric(horizontal: 8),
                     child: TextButton(
                         style: TextButton.styleFrom(
-                          primary: subCatId == ""
+                          foregroundColor: subCatId == ""
                               ? activeColorText
-                              : inactiveColorText,
-                          backgroundColor:
+                              : inactiveColorText, backgroundColor:
                               subCatId == "" ? activeColor : inactiveColor,
                         ),
                         onPressed: () {

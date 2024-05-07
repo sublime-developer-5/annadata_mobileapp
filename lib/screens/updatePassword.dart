@@ -215,7 +215,7 @@ class _UpdateUserPasswordState extends State<UpdateUserPassword> {
                           }
                         },
                         style: ElevatedButton.styleFrom(
-                            primary: Colors.orange,
+                            backgroundColor: Colors.orange,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(25))),
                         // style: ButtonStyle( backgroundColor: MaterialStateProperty.all<Color>(Color(Colors.orange)),

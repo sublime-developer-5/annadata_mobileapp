@@ -83,10 +83,9 @@ class _CommodityListPgeState extends State<CommodityListPge> {
                   padding: const EdgeInsets.symmetric(horizontal: 8),
                   child: TextButton(
                       style: TextButton.styleFrom(
-                        primary: categoryId == ""
+                        foregroundColor: categoryId == ""
                             ? activeColorText
-                            : inactiveColorText,
-                        backgroundColor:
+                            : inactiveColorText, backgroundColor:
                             categoryId == "" ? activeColor : inactiveColor,
                       ),
                       onPressed: () {
