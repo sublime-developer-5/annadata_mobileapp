@@ -8,6 +8,7 @@ import 'package:readmore/readmore.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../env.dart';
 import '../widgets/logisticsListCard.dart';
 
 class ProductPage extends StatefulWidget {
@@ -71,7 +72,7 @@ class _ProductPageState extends State<ProductPage>
 
   Future<List<ProductData>?> getProductInfo() async {
     // Base URL
-    var baseurl = "http://161.97.138.56:3021/mobile/product/getinfo";
+    var baseurl = EnvConfigs.appBaseUrl+"product/getinfo";
 
     Dio dio = Dio();
 
@@ -100,7 +101,7 @@ class _ProductPageState extends State<ProductPage>
 
   Future<List<Data>?> getFarmerContactInfo() async {
     // Base URL
-    var baseurl = "http://161.97.138.56:3021/mobile/product/farmercontact";
+    var baseurl = EnvConfigs.appBaseUrl+"product/farmercontact";
 
     Dio dio = Dio();
 

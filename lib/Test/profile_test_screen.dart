@@ -5,6 +5,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../env.dart';
+
 class ProfileTestScreen extends StatefulWidget {
   const ProfileTestScreen({Key? key}) : super(key: key);
 
@@ -408,7 +410,7 @@ class _ProfileTestScreenState extends State<ProfileTestScreen> {
 
   Future<UserEditInfo?> getUserInfo() async {
     // Base URL
-    var baseurl = "http://161.97.138.56:3021/mobile/user/edit";
+    var baseurl = EnvConfigs.appBaseUrl+"user/edit";
 
     Dio dio = Dio();
 

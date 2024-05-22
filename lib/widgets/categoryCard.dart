@@ -2,6 +2,8 @@ import 'package:annadata/Model/categoryCopy.dart';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 
+import '../env.dart';
+
 class CategoryCard extends StatefulWidget {
   const CategoryCard({
     Key? key,
@@ -77,7 +79,7 @@ class _CategoryCardState extends State<CategoryCard> {
 
   Future<List<CategoryListData>?> getCategoryList() async {
     // Base URL
-    const baseurl = "http://161.97.138.56:3021/mobile/category/list";
+    const baseurl = EnvConfigs.appBaseUrl+"category/list";
 
     Dio dio = Dio();
 

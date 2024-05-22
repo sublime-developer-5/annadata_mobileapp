@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../Model/productModel.dart';
 import '../Model/subCatModel.dart';
+import '../env.dart';
 
 class NoDataFound extends StatelessWidget {
   const NoDataFound({Key? key}) : super(key: key);
@@ -36,7 +37,7 @@ class NoDataFound extends StatelessWidget {
   Future<List<SubCatData>?> getSubCategoryList() async {
     // Base URL
     var baseurl =
-        "http://161.97.138.56:3021/mobile/sub_category/list?category_id=111";
+        EnvConfigs.appBaseUrl+"sub_category/list?category_id=111";
 
     Dio dio = Dio();
 

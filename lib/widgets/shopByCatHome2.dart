@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 import '../Model/categoryCopy.dart';
+import '../env.dart';
 
 class ShopByCatHome2 extends StatefulWidget {
   const ShopByCatHome2({Key? key}) : super(key: key);
@@ -103,7 +104,7 @@ class _ShopByCatHome2State extends State<ShopByCatHome2> {
 
   Future<List<CategoryListData>?> getCategoryList() async {
     // Base URL
-    const baseurl = "http://161.97.138.56:3021/mobile/category/list";
+    const baseurl = EnvConfigs.appBaseUrl+"category/list";
 
     Dio dio = Dio();
 

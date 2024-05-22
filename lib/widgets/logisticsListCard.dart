@@ -3,6 +3,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../env.dart';
+
 class LogisticsListCard extends StatefulWidget {
   LogisticsListCard({Key? key, this.productId}) : super(key: key);
 
@@ -147,7 +149,7 @@ class _LogisticsListCardState extends State<LogisticsListCard> {
     String logisticByProductId = widget.productId.toString();
     // Base URL
     String baseurl =
-        "http://161.97.138.56:3021/mobile/product//logistics_list?product_id=$logisticByProductId";
+        EnvConfigs.appBaseUrl+"product//logistics_list?product_id=$logisticByProductId";
 
     Dio dio = Dio();
 

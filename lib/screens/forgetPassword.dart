@@ -10,6 +10,7 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../Model/updateUser.dart';
+import '../env.dart';
 
 class ForgetPassword extends StatefulWidget {
   const ForgetPassword({Key? key}) : super(key: key);
@@ -115,7 +116,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
     try {
       Dio dio = Dio();
       final response = await dio.post(
-          "http://161.97.138.56:3021/forgotpassword",
+          EnvConfigs.appBaseReg+"forgotpassword",
           data: ({'user_id_or_mobile_no': controllerEmailId.text}));
       String strTemp = response.toString();
       final res = response;
@@ -157,7 +158,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
       Dio dio = Dio();
 
       final response = await dio.post(
-          "http://161.97.138.56:3021/forgotpassword/check_otp",
+          EnvConfigs.appBaseReg+"forgotpassword/check_otp",
           data: ({
             'user_id_or_mobile_no': controllerEmailId.text,
             'otp': otpText

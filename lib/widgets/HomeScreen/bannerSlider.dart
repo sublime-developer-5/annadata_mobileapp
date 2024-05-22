@@ -8,6 +8,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../env.dart';
+
 class BannerSlider extends StatefulWidget {
   const BannerSlider({Key? key}) : super(key: key);
 
@@ -119,7 +121,7 @@ class _BannerSliderState extends State<BannerSlider> {
 
   Future<List<Data>?> getBannerList() async {
     // Base URL
-    const baseurl = "http://161.97.138.56:3021/mobile/banner/list";
+    const baseurl = EnvConfigs.appBaseUrl+"banner/list";
 
     Dio dio = Dio();
 

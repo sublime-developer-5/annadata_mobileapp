@@ -9,6 +9,7 @@ import '../../Model/modelCityList.dart';
 import '../../Model/modelDistrictList.dart';
 import '../../Model/modelStateList.dart';
 import '../../Model/registerRes.dart';
+import '../../env.dart';
 
 class TraderRegSecondPage extends StatefulWidget {
   const TraderRegSecondPage({Key? key}) : super(key: key);
@@ -534,7 +535,7 @@ class _TraderRegSecondPageState extends State<TraderRegSecondPage> {
       Dio dio = Dio(BaseOptions(
           headers: headers, connectTimeout: 8000, receiveTimeout: 8000));
       final response =
-          await dio.get("http://161.97.138.56:3021/mobile/state/list");
+          await dio.get("EnvConfigs.appBaseUrlstate/list");
       String strTemp = response.toString();
       final StateList stateList = StateList.fromJson(response.data);
       setState(() {
@@ -553,7 +554,7 @@ class _TraderRegSecondPageState extends State<TraderRegSecondPage> {
       Dio dio = Dio(BaseOptions(
           headers: headers, connectTimeout: 8000, receiveTimeout: 8000));
       final response = await dio
-          .post("http://161.97.138.56:3021/mobile/city/list_by_district_id",
+          .post("EnvConfigs.appBaseUrlcity/list_by_district_id",
               //data: {"state_id": state_id});
               data: {"district_id": _Select_District.toString()});
       String strTemp = response.toString();
@@ -573,7 +574,7 @@ class _TraderRegSecondPageState extends State<TraderRegSecondPage> {
       final Map<String, String> headers = {};
       Dio dio = Dio(BaseOptions(headers: headers));
       final response = await dio.get(
-          "http://161.97.138.56:3021/mobile/district/list_by_state_id?state_id=$_Select_State");
+          "EnvConfigs.appBaseUrldistrict/list_by_state_id?state_id=$_Select_State");
       String strTemp = response.toString();
       final DistrictList distList = DistrictList.fromJson(response.data);
       setState(() {
@@ -617,7 +618,7 @@ class _TraderRegSecondPageState extends State<TraderRegSecondPage> {
     try {
       Dio dio = Dio();
       final response = await dio
-          .post("http://161.97.138.56:3021/register/buyer", data: formData);
+          .post(EnvConfigs.appBaseReg+"register/buyer", data: formData);
       String strTemp = response.toString();
       final res = response;
 

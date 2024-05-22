@@ -53,7 +53,7 @@ class _RecieveDataSecondScreenState extends State<RecieveDataSecondScreen> {
 
   //   String body = json.encoder(data);
 
-  //   var url = "http://161.97.138.56:3021/register/farmer";
+  //   var url = EnvConfigs.appBaseReg+"register/farmer";
 
   // }
 }

@@ -2,6 +2,7 @@ import 'package:annadata/Model/blogsListModel.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
+import '../env.dart';
 import 'blogIndusvalPage.dart';
 
 class BlogsPage extends StatelessWidget {
@@ -164,13 +165,14 @@ class BlogsPage extends StatelessWidget {
 
   Future<List<Data>?> getBlogData() async {
     // Base URL
-    var baseurl = "http://161.97.138.56:3021/mobile/blog/list";
+    var baseurl = EnvConfigs.appBaseUrl+"blog/list";
 
     Dio dio = Dio();
 
     try {
       Response response = await dio.get(baseurl);
       BlogsListModel res = BlogsListModel.fromJson(response.data);
+      print(res);
 
       return res.data;
     } on DioError catch (e) {

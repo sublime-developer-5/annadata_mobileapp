@@ -13,6 +13,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../Model/user_edit_info_model.dart';
+import '../../env.dart';
 import '../../screens/categoryFilterPage.dart';
 import '../../screens/change_user_password.dart';
 
@@ -36,7 +37,7 @@ class _DrawerHomePageState extends State<DrawerHomePage> {
 
   Future<List<CategoryListData>?> getCategoryList() async {
     // Base URL
-    var baseurl = "http://161.97.138.56:3021/mobile/category/list";
+    var baseurl = EnvConfigs.appBaseUrl+"category/list";
 
     Dio dio = Dio();
 
@@ -568,7 +569,7 @@ class _DrawerHomePageState extends State<DrawerHomePage> {
 
   Future<UserEditInfo?> getUserInfo() async {
     // Base URL
-    var baseurl = "http://161.97.138.56:3021/mobile/user/edit";
+    var baseurl = EnvConfigs.appBaseUrl+"user/edit";
 
     Dio dio = Dio();
     final prefs = await SharedPreferences.getInstance();

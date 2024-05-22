@@ -16,6 +16,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../Model/modelCityList.dart';
 import '../Model/modelDistrictList.dart';
+import '../env.dart';
 
 class ProfileEditPage extends StatefulWidget {
   const ProfileEditPage({
@@ -1268,7 +1269,7 @@ class _ProfileEditPage extends State<ProfileEditPage> {
 
   Future<UserEditInfo?> getUserInfo() async {
     // Base URL
-    var baseurl = "http://161.97.138.56:3021/mobile/user/edit";
+    var baseurl = EnvConfigs.appBaseUrl+"user/edit";
 
     Dio dio = Dio();
     final prefs = await SharedPreferences.getInstance();
@@ -1337,7 +1338,7 @@ class _ProfileEditPage extends State<ProfileEditPage> {
       Dio dio = Dio(BaseOptions(
           headers: headers, connectTimeout: 8000, receiveTimeout: 8000));
       final response =
-          await dio.get("http://161.97.138.56:3021/mobile/state/list");
+          await dio.get(EnvConfigs.appBaseUrl+"state/list");
       String strTemp = response.toString();
       final StateList stateList = StateList.fromJson(response.data);
       setState(() {
@@ -1356,7 +1357,7 @@ class _ProfileEditPage extends State<ProfileEditPage> {
       Dio dio = Dio(BaseOptions(
           headers: headers, connectTimeout: 8000, receiveTimeout: 8000));
       final response = await dio
-          .post("http://161.97.138.56:3021/mobile/city/list_by_district_id",
+          .post(EnvConfigs.appBaseUrl+"city/list_by_district_id",
               //data: {"state_id": state_id});
               data: {"district_id": district_id.toString()});
       String strTemp = response.toString();
@@ -1376,7 +1377,7 @@ class _ProfileEditPage extends State<ProfileEditPage> {
       final Map<String, String> headers = {};
       Dio dio = Dio(BaseOptions(headers: headers));
       final response = await dio.get(
-          "http://161.97.138.56:3021/mobile/district/list_by_state_id?state_id=$state_id");
+          EnvConfigs.appBaseUrl+"district/list_by_state_id?state_id=$state_id");
       String strTemp = response.toString();
       final DistrictList distList = DistrictList.fromJson(response.data);
       setState(() {
@@ -1437,7 +1438,7 @@ class _ProfileEditPage extends State<ProfileEditPage> {
       Dio dio = Dio(BaseOptions(
           headers: headers, connectTimeout: 8000, receiveTimeout: 8000));
       final response = await dio.post(
-          "http://161.97.138.56:3021/mobile/user/update",
+          EnvConfigs.appBaseUrl+"user/update",
           options: Options(headers: {'x-access-token': userToken}),
           data: formData);
       String strTemp = response.toString();
@@ -1483,7 +1484,7 @@ class _ProfileEditPage extends State<ProfileEditPage> {
       print(e);
     }
 
-    // const url = "http://161.97.138.56:3021/register/farmer";
+    // const url = EnvConfigs.appBaseReg+"register/farmer";
 
     // Response response;
     // var dio = Dio();

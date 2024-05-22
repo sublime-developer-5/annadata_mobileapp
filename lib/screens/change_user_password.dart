@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../Model/updateUser.dart';
 import '../Model/user_edit_info_model.dart';
+import '../env.dart';
 import '../widgets/HomeScreen/homeBottumNavBar.dart';
 
 class ChangeUserPassword extends StatefulWidget {
@@ -294,7 +295,7 @@ class _ChangeUserPasswordState extends State<ChangeUserPassword> {
 
   Future<UserEditInfo?> getUserInfo() async {
     // Base URL
-    var baseurl = "http://161.97.138.56:3021/mobile/user/edit";
+    var baseurl = EnvConfigs.appBaseUrl+"user/edit";
 
     Dio dio = Dio();
     final prefs = await SharedPreferences.getInstance();
@@ -362,7 +363,7 @@ class _ChangeUserPasswordState extends State<ChangeUserPassword> {
     try {
       Dio dio = Dio();
       final response = await dio.post(
-          "http://161.97.138.56:3021/mobile/user/update_password",
+          "EnvConfigs.appBaseUrluser/update_password",
           options: Options(headers: {'x-access-token': token}),
           data: formData);
       String strTemp = response.toString();

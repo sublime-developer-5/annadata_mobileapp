@@ -8,6 +8,8 @@ import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../env.dart';
+
 class ProfilePageFarmer extends StatefulWidget {
   const ProfilePageFarmer({Key? key}) : super(key: key);
 
@@ -939,7 +941,7 @@ class _ProfileTestScreenState extends State<ProfilePageFarmer> {
 
   Future<UserEditInfo?> getUserInfo() async {
     // Base URL
-    var baseurl = "http://161.97.138.56:3021/mobile/user/edit";
+    var baseurl = EnvConfigs.appBaseUrl+"user/edit";
 
     Dio dio = Dio();
 

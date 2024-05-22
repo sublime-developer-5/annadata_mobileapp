@@ -2,6 +2,8 @@ import 'package:annadata/Model/blog_Info_model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
+import '../env.dart';
+
 class BlogsIndusval extends StatefulWidget {
   BlogsIndusval(
       {Key? key, required this.get_blog_Id, required this.get_BlogName})
@@ -17,7 +19,7 @@ class BlogsIndusval extends StatefulWidget {
 class _BlogsIndusvalState extends State<BlogsIndusval> {
   Future<List<Data>?> getBlogInfo() async {
     // Base URL
-    var baseurl = "http://161.97.138.56:3021/mobile/blog/getinfo";
+    var baseurl = EnvConfigs.appBaseUrl+"blog/getinfo";
 
     Dio dio = Dio();
 
@@ -25,6 +27,7 @@ class _BlogsIndusvalState extends State<BlogsIndusval> {
       Response response =
           await dio.post(baseurl, data: {"blog_id": widget.get_blog_Id});
       BlogInfoModel res = BlogInfoModel.fromJson(response.data);
+      print(res.toJson());
 
       // var resData = jsonDecode(res.toString());
       // debugPrint(resData);

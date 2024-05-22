@@ -236,7 +236,7 @@ class _HomePageState extends State<HomePage> {
 
   // Future<List<CategoryListData>?> getCategoryList() async {
   //   // Base URL
-  //   var baseurl = "http://161.97.138.56:3021/mobile/category/list";
+  //   var baseurl = "EnvConfigs.appBaseUrlcategory/list";
 
   //   Dio dio = Dio();
 

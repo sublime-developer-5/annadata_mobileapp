@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:search_page/search_page.dart';
 
 import '../Model/categoryCopy.dart';
+import '../env.dart';
 
 class TestSearchPage extends StatefulWidget {
   const TestSearchPage({Key? key}) : super(key: key);
@@ -57,7 +58,7 @@ class _TestSearchPageState extends State<TestSearchPage> {
 
   Future<List<CategoryListData>?> getCategoryList() async {
     // Base URL
-    var baseurl = "http://161.97.138.56:3021/mobile/category/list";
+    var baseurl = EnvConfigs.appBaseUrl+"category/list";
 
     Dio dio = Dio();
 

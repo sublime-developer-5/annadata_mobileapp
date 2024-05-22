@@ -1,10 +1,14 @@
 import 'dart:async';
+import 'dart:convert';
 import 'package:annadata/Model/categoryCopy.dart';
 import 'package:annadata/Model/subCatModel.dart';
 import 'package:annadata/widgets/filterListCard.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
+
+import '../Model/productModel.dart';
+import '../env.dart';
 
 class CategoryFilterPage extends StatefulWidget {
   CategoryFilterPage(
@@ -23,7 +27,7 @@ class _CategoryFilterPageState extends State<CategoryFilterPage> {
   bool filtercheckBox = true;
 
   String cate_Item = "Category";
-
+  List<ProductData> products = <ProductData>[];
   String categoryId = "";
   String? subCatId;
   String? select_Cat;
@@ -40,15 +44,17 @@ class _CategoryFilterPageState extends State<CategoryFilterPage> {
   void initState() {
     super.initState();
 
-    print("********* subCategoryId ********");
-    print(widget.passSubCatId.toString());
+    // print("********* subCategoryId ********");
+    // print(widget.passSubCatId.toString());
 
     setState(() {
       categoryId = widget.category_id_param.toString();
       subCatId = subCatId == null ? widget.passSubCatId.toString() : "";
+      getProduct();
     });
     Timer(Duration(seconds: 1),
-        () => {scrollToIndex(widget.index), scrollToIndexSubCat(widget.index)});
+        () {
+      scrollToIndex(widget.index); scrollToIndexSubCat(widget.index);});
   }
 
   scrollToIndex(index) async {
@@ -158,9 +164,8 @@ class _CategoryFilterPageState extends State<CategoryFilterPage> {
                       scrollDirection: Axis.horizontal,
                       itemCount: snapShot.data!.length,
                       itemBuilder: (BuildContext context, index) {
-                        print(snapShot.data![index].categoryImg);
-                        print(
-                            "************************ snapShot.data **********************");
+                       // print(snapShot.data![index].categoryImg);
+                       // print("************************ snapShot.data **********************");
                         final catId =
                             snapShot.data![index].categoryId.toString();
 
@@ -183,11 +188,12 @@ class _CategoryFilterPageState extends State<CategoryFilterPage> {
                               onTap: () {
                                 scrollToIndex(index);
 
-                                print(catId);
+                              //  print(catId);
                                 setState(() {
                                   categoryId = catId;
                                   subCatId = "";
                                 });
+                                getProduct();
                               },
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
@@ -251,6 +257,7 @@ class _CategoryFilterPageState extends State<CategoryFilterPage> {
                       onPressed: () {
                         setState(() {
                           subCatId = "";
+                          getProduct();
                         });
                       },
                       child: const Text("All")),
@@ -311,13 +318,12 @@ class _CategoryFilterPageState extends State<CategoryFilterPage> {
                                       hoverColor: Colors.green,
                                       onTap: () {
                                         scrollToIndexSubCat(index);
-                                        print("subCategoryId");
-                                        print(subCategoryId);
+                                        // print("subCategoryId");
+                                        // print(subCategoryId);
                                         setState(() {
                                           subCatId = subCategoryId;
                                         });
-                                        print("subCatId");
-                                        print(subCatId);
+                                        getProduct();
                                       },
                                       child: Padding(
                                         padding: const EdgeInsets.symmetric(
@@ -356,9 +362,11 @@ class _CategoryFilterPageState extends State<CategoryFilterPage> {
             color: const Color.fromARGB(255, 223, 221, 221),
           ),
           ProductListCard(
-            cat_id: categoryId,
-            sub_id: subCatId,
+            products: products,
           )
+          // ProductListCard(
+          //  products: products,
+          // )
         ],
       ),
     );
@@ -513,8 +521,8 @@ class _CategoryFilterPageState extends State<CategoryFilterPage> {
 
   Future<List<CategoryListData>?> getCategoryList() async {
     // Base URL
-    var baseurl = "http://161.97.138.56:3021/mobile/category/list";
-
+    var baseurl = EnvConfigs.appBaseUrl+"category/list";
+    print("-----------------------------------------------Calling  Api");
     Dio dio = Dio();
 
     try {
@@ -527,10 +535,40 @@ class _CategoryFilterPageState extends State<CategoryFilterPage> {
     }
   }
 
+  Future<List<ProductData>?> getProduct() async {
+    print("called Products");
+    var data1 = {
+      "cat_subcat": jsonEncode([
+        {
+          "cat_id": categoryId,
+          "sub_cat_id":  subCatId
+        }
+      ])
+    };
+
+    var formData = FormData.fromMap(data1);
+
+    // Base URL
+    const baseurl = EnvConfigs.appBaseUrl + "product/list";
+    print("product/list");
+    Dio dio = Dio();
+
+    try {
+      Response response = await dio.post(baseurl, data: formData);
+      ProductModel res = ProductModel.fromJson(response.data);
+      products = res.data ?? [];
+      setState(() {});
+      print(formData.fields);
+      return res.data;
+    } on DioError catch (e) {
+      print(e);
+    }
+  }
   Future<List<SubCatData>?> getSubCategoryList() async {
     // Base URL
+    print("-----------------------------------------------Calling Sub Api");
     var baseurl =
-        "http://161.97.138.56:3021/mobile/sub_category/list?category_id=$categoryId";
+        EnvConfigs.appBaseUrl+"sub_category/list?category_id=$categoryId";
 
     Dio dio = Dio();
 

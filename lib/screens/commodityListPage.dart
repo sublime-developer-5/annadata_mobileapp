@@ -5,6 +5,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
+import '../env.dart';
+
 class CommodityListPge extends StatefulWidget {
   CommodityListPge({Key? key, this.cat_id_param}) : super(key: key);
 
@@ -336,7 +338,7 @@ class _CommodityListPgeState extends State<CommodityListPge> {
 
   Future<List<CategoryListData>?> getCategoryList() async {
     // Base URL
-    var baseurl = "http://161.97.138.56:3021/mobile/category/list";
+    var baseurl = EnvConfigs.appBaseUrl+"category/list";
 
     Dio dio = Dio();
 
@@ -353,7 +355,7 @@ class _CommodityListPgeState extends State<CommodityListPge> {
   Future<List<SubCatData>?> getSubCategoryList() async {
     // Base URL
     var baseurl =
-        "http://161.97.138.56:3021/mobile/sub_category/list?category_id$categoryId";
+        EnvConfigs.appBaseUrl+"sub_category/list?category_id$categoryId";
 
     Dio dio = Dio();
 

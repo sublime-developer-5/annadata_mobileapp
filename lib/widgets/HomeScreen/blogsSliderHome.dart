@@ -6,6 +6,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
+import '../../env.dart';
+
 class BlogsSliderHome extends StatefulWidget {
   const BlogsSliderHome({Key? key}) : super(key: key);
 
@@ -227,7 +229,7 @@ class _BlogsSliderHomeState extends State<BlogsSliderHome> {
 
   Future<List<Data>?> getBlogData() async {
     // Base URL
-    const baseurl = "http://161.97.138.56:3021/mobile/blog/list";
+    const baseurl = EnvConfigs.appBaseUrl+"blog/list";
 
     Dio dio = Dio();
 

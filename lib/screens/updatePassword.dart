@@ -8,6 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../Model/updateUser.dart';
 import '../Model/user_edit_info_model.dart';
+import '../env.dart';
 import '../widgets/HomeScreen/homeBottumNavBar.dart';
 
 class UpdateUserPassword extends StatefulWidget {
@@ -255,7 +256,7 @@ class _UpdateUserPasswordState extends State<UpdateUserPassword> {
     try {
       Dio dio = Dio();
       final response = await dio.post(
-          "http://161.97.138.56:3021/forgotpassword/update_password",
+          EnvConfigs.appBaseReg+"forgotpassword/update_password",
           data: formData);
       String strTemp = response.toString();
       final res = response;

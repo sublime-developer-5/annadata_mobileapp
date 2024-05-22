@@ -15,6 +15,7 @@ import '../Model/registerRes.dart';
 import '../Model/subCatModel.dart';
 import '../Model/unitList_model.dart';
 import '../Model/user_edit_info_model.dart';
+import '../env.dart';
 
 class ProductAdd_SecondPage extends StatefulWidget {
   const ProductAdd_SecondPage({Key? key}) : super(key: key);
@@ -488,7 +489,7 @@ class _ProductAdd_SecondPageState extends State<ProductAdd_SecondPage> {
 
   Future<List<CategoryListData>?> getCategoryList() async {
     // Base URL
-    var baseurl = "http://161.97.138.56:3021/mobile/category/list";
+    var baseurl = "EnvConfigs.appBaseUrlcategory/list";
 
     Dio dio = Dio();
 
@@ -512,7 +513,7 @@ class _ProductAdd_SecondPageState extends State<ProductAdd_SecondPage> {
   Future<List<SubCatData>?> getSubCategoryList() async {
     // Base URL
     var baseurl =
-        "http://161.97.138.56:3021/mobile/sub_category/list?category_id=$catId_val";
+        "EnvConfigs.appBaseUrlsub_category/list?category_id=$catId_val";
 
     Dio dio = Dio();
 
@@ -534,7 +535,7 @@ class _ProductAdd_SecondPageState extends State<ProductAdd_SecondPage> {
 
   Future<List<UnitListData>?> getUnitList() async {
     // Base URL
-    var baseurl = "http://161.97.138.56:3021/mobile/unit/list";
+    var baseurl = EnvConfigs.appBaseUrl+"unit/list";
 
     Dio dio = Dio();
 
@@ -556,7 +557,7 @@ class _ProductAdd_SecondPageState extends State<ProductAdd_SecondPage> {
 
   Future<UserEditInfo?> getUserInfo() async {
     // Base URL
-    var baseurl = "http://161.97.138.56:3021/mobile/user/edit";
+    var baseurl = EnvConfigs.appBaseUrl+"user/edit";
 
     Dio dio = Dio();
     final prefs = await SharedPreferences.getInstance();
@@ -633,7 +634,7 @@ class _ProductAdd_SecondPageState extends State<ProductAdd_SecondPage> {
       final Map<String, String> headers = {};
       Dio dio = Dio();
       final response = await dio.post(
-          "http://161.97.138.56:3021/mobile/product/add",
+          EnvConfigs.appBaseUrl+"product/add",
           options: Options(headers: {'x-access-token': user_token}),
           data: formData);
       String strTemp = response.toString();

@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
+import '../../env.dart';
 import '../../screens/categoryFilterPage.dart';
 
 class ShopByCatHome extends StatefulWidget {
@@ -143,7 +144,7 @@ class _ShopByCatHomeState extends State<ShopByCatHome> {
 
   Future<List<CategoryListData>?> getCategoryList() async {
     // Base URL
-    const baseurl = "http://161.97.138.56:3021/mobile/category/list";
+    const baseurl = EnvConfigs.appBaseUrl+"category/list";
 
     Dio dio = Dio();
 

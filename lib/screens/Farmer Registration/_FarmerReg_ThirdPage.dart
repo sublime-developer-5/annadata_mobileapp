@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../env.dart';
+
 class FarmerRegThirdPage extends StatefulWidget {
   const FarmerRegThirdPage({Key? key}) : super(key: key);
 
@@ -504,7 +506,7 @@ class _FarmerRegThirdPageState extends State<FarmerRegThirdPage> {
       final Map<String, String> headers = {};
       Dio dio = Dio();
       final response = await dio
-          .post("http://161.97.138.56:3021/register/farmer", data: formData);
+          .post(EnvConfigs.appBaseReg+"register/farmer", data: formData);
       String strTemp = response.toString();
       final res = response;
 

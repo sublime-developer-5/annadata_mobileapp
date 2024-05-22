@@ -12,6 +12,7 @@ import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../Model/modelCityList.dart';
+import '../../env.dart';
 
 class FarmerRegSecondPage extends StatefulWidget {
   const FarmerRegSecondPage({Key? key}) : super(key: key);
@@ -610,7 +611,7 @@ class _FarmerRegSecondPageState extends State<FarmerRegSecondPage> {
       Dio dio = Dio(BaseOptions(
           headers: headers, connectTimeout: 8000, receiveTimeout: 8000));
       final response =
-          await dio.get("http://161.97.138.56:3021/mobile/state/list");
+          await dio.get(EnvConfigs.appBaseUrl+"state/list");
       String strTemp = response.toString();
       final StateList stateList = StateList.fromJson(response.data);
       setState(() {
@@ -629,7 +630,7 @@ class _FarmerRegSecondPageState extends State<FarmerRegSecondPage> {
       Dio dio = Dio(BaseOptions(
           headers: headers, connectTimeout: 8000, receiveTimeout: 8000));
       final response = await dio
-          .post("http://161.97.138.56:3021/mobile/city/list_by_district_id",
+          .post(EnvConfigs.appBaseUrl+"city/list_by_district_id",
               //data: {"state_id": state_id});
               data: {"district_id": district_id.toString()});
       String strTemp = response.toString();
@@ -649,7 +650,7 @@ class _FarmerRegSecondPageState extends State<FarmerRegSecondPage> {
       final Map<String, String> headers = {};
       Dio dio = Dio(BaseOptions(headers: headers));
       final response = await dio.get(
-          "http://161.97.138.56:3021/mobile/district/list_by_state_id?state_id=$state_id");
+          EnvConfigs.appBaseUrl+"district/list_by_state_id?state_id=$state_id");
       String strTemp = response.toString();
       final DistrictList distList = DistrictList.fromJson(response.data);
       setState(() {

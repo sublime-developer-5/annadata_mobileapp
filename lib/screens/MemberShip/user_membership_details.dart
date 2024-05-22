@@ -11,6 +11,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shimmer/shimmer.dart';
 
+import '../../env.dart';
+
 class UserMembershipDetails extends StatefulWidget {
   const UserMembershipDetails({Key? key}) : super(key: key);
 
@@ -471,7 +473,7 @@ class _UserMembershipDetailsState extends State<UserMembershipDetails> {
     var userToken = prefs.getString("auth_token");
 
     var userRole = prefs.getString("userRole");
-    String baseUrl = "http://161.97.138.56:3021/mobile/user/usermembership";
+    String baseUrl = EnvConfigs.appBaseUrl+"user/usermembership";
     try {
       Dio dio = Dio();
 
@@ -502,7 +504,7 @@ class _UserMembershipDetailsState extends State<UserMembershipDetails> {
     var id = prefs.getString("_id");
     var token = prefs.getString("auth_token");
     // Base URL
-    var baseurl = "http://161.97.138.56:3021/mobile/user/edit";
+    var baseurl = EnvConfigs.appBaseUrl+"user/edit";
 
     Dio dio = Dio();
 

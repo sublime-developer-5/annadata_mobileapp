@@ -19,6 +19,7 @@ import 'package:shimmer/shimmer.dart';
 import '../Model/categoryCopy.dart';
 import '../Model/registerRes.dart';
 import '../Model/subCatModel.dart';
+import '../env.dart';
 
 class AddProductByFarmer extends StatefulWidget {
   const AddProductByFarmer({Key? key}) : super(key: key);
@@ -399,7 +400,7 @@ class _AddProductByFarmerState extends State<AddProductByFarmer> {
 
   Future<List<CategoryListData>?> getCategoryList() async {
     // Base URL
-    var baseurl = "http://161.97.138.56:3021/mobile/category/list";
+    var baseurl = EnvConfigs.appBaseUrl+"category/list";
 
     Dio dio = Dio();
 
@@ -423,7 +424,7 @@ class _AddProductByFarmerState extends State<AddProductByFarmer> {
   Future<List<SubCatData>?> getSubCategoryList() async {
     // Base URL
     var baseurl =
-        "http://161.97.138.56:3021/mobile/sub_category/list?category_id=$catId_val";
+        EnvConfigs.appBaseUrl+"sub_category/list?category_id=$catId_val";
 
     Dio dio = Dio();
 
@@ -445,7 +446,7 @@ class _AddProductByFarmerState extends State<AddProductByFarmer> {
 
   Future<List<UnitListData>?> getUnitList() async {
     // Base URL
-    var baseurl = "http://161.97.138.56:3021/mobile/unit/list";
+    var baseurl = EnvConfigs.appBaseUrl+"unit/list";
 
     Dio dio = Dio();
 
@@ -467,7 +468,7 @@ class _AddProductByFarmerState extends State<AddProductByFarmer> {
 
   Future<UserEditInfo?> getUserInfo() async {
     // Base URL
-    var baseurl = "http://161.97.138.56:3021/mobile/user/edit";
+    var baseurl = EnvConfigs.appBaseUrl+"user/edit";
 
     Dio dio = Dio();
     final prefs = await SharedPreferences.getInstance();
@@ -525,7 +526,7 @@ class _AddProductByFarmerState extends State<AddProductByFarmer> {
 
   Future<List<Data>?> getLisProductAddedByFarmer() async {
     // Base URL
-    var baseurl = "http://161.97.138.56:3021/mobile/product/listbyuser_id";
+    var baseurl = EnvConfigs.appBaseUrl+"product/listbyuser_id";
 
     Dio dio = Dio();
     final prefs = await SharedPreferences.getInstance();
@@ -572,7 +573,7 @@ class _AddProductByFarmerState extends State<AddProductByFarmer> {
       final Map<String, String> headers = {};
       Dio dio = Dio();
       final response = await dio.post(
-          "http://161.97.138.56:3021/mobile/product/add",
+          EnvConfigs.appBaseUrl+"product/add",
           options: Options(headers: {'x-access-token': user_token}),
           data: formData);
       String strTemp = response.toString();

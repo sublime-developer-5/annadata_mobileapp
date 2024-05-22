@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
+import '../../env.dart';
 import '../../widgets/HomeScreen/homeBottumNavBar.dart';
 import '../homepage.dart';
 import '../login.dart';
@@ -303,7 +304,7 @@ class _MembershipDetailsState extends State<MembershipDetails> {
   }
 
   Future<List<Data>?> getMembershipPlansList() async {
-    String baseUrl = "http://161.97.138.56:3021/mobile/membershipplan/list";
+    String baseUrl = EnvConfigs.appBaseUrl+"membershipplan/list";
     try {
       Dio dio = Dio();
 
@@ -320,7 +321,7 @@ class _MembershipDetailsState extends State<MembershipDetails> {
 
   Future<UserEditInfo?> getUserInfo() async {
     // Base URL
-    var baseurl = "http://161.97.138.56:3021/mobile/user/edit";
+    var baseurl = EnvConfigs.appBaseUrl+"user/edit";
 
     Dio dio = Dio();
     var formData = FormData.fromMap({
@@ -362,7 +363,7 @@ class _MembershipDetailsState extends State<MembershipDetails> {
   Future<List<RazorPayData>?> getPaymentGatwayDetails() async {
     // Base URL
     var baseurl =
-        "http://161.97.138.56:3021/mobile/membershipdetail/paymentgateway";
+        EnvConfigs.appBaseUrl+"membershipdetail/paymentgateway";
 
     Dio dio = Dio();
     var formData = FormData.fromMap({
@@ -400,7 +401,7 @@ class _MembershipDetailsState extends State<MembershipDetails> {
 
   Future uploadRazorpayResponse() async {
     // Base URL
-    var baseurl = "http://161.97.138.56:3021/mobile/membershipdetail/add";
+    var baseurl = EnvConfigs.appBaseUrl+"membershipdetail/add";
 
     Dio dio = Dio();
 

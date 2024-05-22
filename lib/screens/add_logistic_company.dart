@@ -394,7 +394,7 @@ class _AddLogisticCompanyState extends State<AddLogisticCompany> {
       final Map<String, String> headers = {};
       Dio dio = Dio();
       final response = await dio.post(
-          "http://161.97.138.56:3021/mobile/logistic/add",
+          "EnvConfigs.appBaseUrllogistic/add",
           data: formData);
 
       String strTemp = response.toString();
@@ -452,7 +452,7 @@ class _AddLogisticCompanyState extends State<AddLogisticCompany> {
       final Map<String, String> headers = {};
       Dio dio = Dio();
       final response = await dio.post(
-          "http://161.97.138.56:3021/mobile/logistic/update",
+          "EnvConfigs.appBaseUrllogistic/update",
           data: formData);
 
       String strTemp = response.toString();
@@ -499,7 +499,7 @@ class _AddLogisticCompanyState extends State<AddLogisticCompany> {
     var user_id_val = userId.toString();
     debugPrint(user_id_val);
     var baseurl =
-        "http://161.97.138.56:3021/mobile/logistic/list?user_id=$user_id_val";
+        "EnvConfigs.appBaseUrllogistic/list?user_id=$user_id_val";
 
     Dio dio = Dio();
 

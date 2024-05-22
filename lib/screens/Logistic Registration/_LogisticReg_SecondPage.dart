@@ -12,6 +12,7 @@ import '../../Model/modelCityList.dart';
 import '../../Model/modelDistrictList.dart';
 import '../../Model/modelStateList.dart';
 import '../../Model/registerRes.dart';
+import '../../env.dart';
 import '../Farmer Registration/_FarmerReg_ThirdPage.dart';
 
 class LogisticRegSecondPage extends StatefulWidget {
@@ -529,7 +530,7 @@ class _LogisticRegSecondPageState extends State<LogisticRegSecondPage> {
       Dio dio = Dio(BaseOptions(
           headers: headers, connectTimeout: 8000, receiveTimeout: 8000));
       final response =
-          await dio.get("http://161.97.138.56:3021/mobile/state/list");
+          await dio.get(EnvConfigs.appBaseUrl+"state/list");
       String strTemp = response.toString();
       final StateList stateList = StateList.fromJson(response.data);
       setState(() {
@@ -548,7 +549,7 @@ class _LogisticRegSecondPageState extends State<LogisticRegSecondPage> {
       Dio dio = Dio(BaseOptions(
           headers: headers, connectTimeout: 8000, receiveTimeout: 8000));
       final response = await dio
-          .post("http://161.97.138.56:3021/mobile/city/list_by_district_id",
+          .post(EnvConfigs.appBaseUrl+"city/list_by_district_id",
               //data: {"state_id": state_id});
               data: {"district_id": _Select_District.toString()});
       String strTemp = response.toString();
@@ -567,9 +568,9 @@ class _LogisticRegSecondPageState extends State<LogisticRegSecondPage> {
     try {
       final Map<String, String> headers = {};
       Dio dio = Dio(BaseOptions(headers: headers));
-      // final response = await dio.get("http://161.97.138.56:3021/mobile/district/list_by_state_id?state_id=$_Select_State");
+      // final response = await dio.get("EnvConfigs.appBaseUrldistrict/list_by_state_id?state_id=$_Select_State");
       final response = await dio.get(
-          "http://161.97.138.56:3021/mobile/district/list_by_state_id?state_id=$_Select_State");
+          EnvConfigs.appBaseUrl+"district/list_by_state_id?state_id=$_Select_State");
       String strTemp = response.toString();
       final DistrictList distList = DistrictList.fromJson(response.data);
       setState(() {
@@ -614,7 +615,7 @@ class _LogisticRegSecondPageState extends State<LogisticRegSecondPage> {
       Dio dio = Dio(BaseOptions(
           headers: headers, connectTimeout: 8000, receiveTimeout: 8000));
       final response = await dio
-          .post("http://161.97.138.56:3021/register/logistics", data: formData);
+          .post(EnvConfigs.appBaseReg+"register/logistics", data: formData);
       String strTemp = response.toString();
       final res = response;
 

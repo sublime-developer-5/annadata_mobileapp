@@ -1,6 +1,3 @@
-import 'dart:developer';
-import 'dart:convert';
-
 import 'package:annadata/Model/loginRes.dart';
 import 'package:annadata/screens/Logistic%20Registration/_LogisticReg_FirstPage.dart';
 import 'package:annadata/screens/Trader%20Registration/_TraderReg_FirstPage.dart';
@@ -10,9 +7,9 @@ import 'package:dio/dio.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:form_field_validator/form_field_validator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../env.dart';
 import '../widgets/HomeScreen/homeBottumNavBar.dart';
 
 class LoginPage extends StatefulWidget {
@@ -42,15 +39,16 @@ class _LoginPageState extends State<LoginPage> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          leading: IconButton(
-            icon: Icon(
-              Icons.arrow_back,
-              color: Colors.orange,
-            ),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
+          automaticallyImplyLeading: false,
+          // leading: IconButton(
+          //   icon: Icon(
+          //     Icons.arrow_back,
+          //     color: Colors.orange,
+          //   ),
+          //   onPressed: () {
+          //    // Navigator.pop(context);
+          //   },
+          // ),
         ),
         body: Center(
           child: SingleChildScrollView(
@@ -357,8 +355,8 @@ class _LoginPageState extends State<LoginPage> {
 
 // Login API
   Future uploadLoginData() async {
-    //final baseUrl = "http://161.97.138.56:3021/login";
-    const baseUrl = "http://161.97.138.56:3021/login";
+    //final baseUrl = EnvConfigs.appBaseReg+"login";
+    const baseUrl = EnvConfigs.appBaseReg+"login";
     // log("My Data");
     // log(userName.text);
     // log(userPass.text);

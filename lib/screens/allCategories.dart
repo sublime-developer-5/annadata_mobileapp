@@ -80,7 +80,7 @@ class _AllCategoriesState extends State<AllCategories> {
 
   Future<List<CategoryListData>?> getCategoryList() async {
     // Base URL
-    const baseurl = "http://161.97.138.56:3021/mobile/category/list";
+    const baseurl = "EnvConfigs.appBaseUrlcategory/list";
 
     Dio dio = Dio();
 

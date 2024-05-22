@@ -13,6 +13,7 @@ import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../Model/registerRes.dart';
+import '../../env.dart';
 
 class TraderRegFirstPage extends StatefulWidget {
   const TraderRegFirstPage({Key? key}) : super(key: key);
@@ -875,7 +876,7 @@ class _TraderRegFirstPageState extends State<TraderRegFirstPage> {
       final Map<String, String> headers = {};
       Dio dio = Dio();
       final response = await dio
-          .post("http://161.97.138.56:3021/register/check", data: formData);
+          .post(EnvConfigs.appBaseReg+"register/check", data: formData);
       String strTemp = response.toString();
       final res = response;
 
