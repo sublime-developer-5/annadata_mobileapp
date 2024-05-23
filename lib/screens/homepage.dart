@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                             cursorColor: Colors.white,
                           ),
                           textTheme: TextTheme(
-                              headline6: TextStyle(color: Colors.white)),
+                              headlineSmall: TextStyle(color: Colors.white)),
                           appBarTheme:
                               AppBarTheme(backgroundColor: Colors.green)),
                       searchLabel: "Search categories",

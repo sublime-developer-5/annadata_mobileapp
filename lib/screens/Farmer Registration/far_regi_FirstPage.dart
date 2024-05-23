@@ -7,7 +7,7 @@ import 'package:annadata/Test/recieveDataTest.dart';
 import 'package:annadata/screens/Farmer%20Registration/_FarmerReg_SecondPage.dart';
 import 'package:annadata/widgets/test_image_picker.dart';
 import 'package:dio/dio.dart';
-import 'package:file_picker/file_picker.dart';
+//import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_cropper/image_cropper.dart';

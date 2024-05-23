@@ -4,7 +4,7 @@ import 'package:annadata/Test/profile_edit_page.dart';
 import 'package:annadata/widgets/popup_for_sessionExpire.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:open_file/open_file.dart';
+//import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -988,7 +988,7 @@ class _ProfileTestScreenState extends State<ProfilePageFarmer> {
 
     if (file == null) return;
     print('path: ${file.path}');
-    OpenFile.open(file.path);
+   // OpenFile.open(file.path);
   }
 
   Future<File?> downloadFile(String? url, String name) async {

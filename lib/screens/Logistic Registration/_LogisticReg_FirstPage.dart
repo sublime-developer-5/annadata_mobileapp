@@ -2,7 +2,7 @@ import 'dart:developer';
 import 'dart:io';
 import 'package:annadata/screens/Farmer%20Registration/_FarmerReg_ThirdPage.dart';
 import 'package:annadata/screens/Logistic%20Registration/_LogisticReg_SecondPage.dart';
-import 'package:file_picker/file_picker.dart';
+//import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_cropper/image_cropper.dart';

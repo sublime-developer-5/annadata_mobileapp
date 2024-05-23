@@ -6,7 +6,7 @@ import 'package:annadata/Model/user_membership_details_model.dart';
 import 'package:date_format/date_format.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:open_file/open_file.dart';
+//import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shimmer/shimmer.dart';
@@ -551,7 +551,7 @@ class _UserMembershipDetailsState extends State<UserMembershipDetails> {
 
     if (file == null) return;
     print('path: ${file.path}');
-    OpenFile.open(file.path);
+   // OpenFile.open(file.path);
   }
 
   Future<File?> downloadFile(String? url, String name) async {

@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:annadata/screens/Trader%20Registration/_TraderReg_SecondPage.dart';
 import 'package:annadata/widgets/TextInputFormater/forFirstLetterUppercaseOfEachWord.dart';
 import 'package:dio/dio.dart';
-import 'package:file_picker/file_picker.dart';
+//import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_cropper/image_cropper.dart';

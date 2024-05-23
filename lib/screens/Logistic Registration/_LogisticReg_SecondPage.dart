@@ -156,13 +156,17 @@ class _LogisticRegSecondPageState extends State<LogisticRegSecondPage> {
                       SizedBox(height: 10),
 
                       DropdownButtonFormField2(
-                        buttonPadding: EdgeInsets.symmetric(horizontal: 20),
-                        buttonHeight: 45,
-                        dropdownMaxHeight: 350,
-                        dropdownPadding: EdgeInsets.symmetric(horizontal: 15),
-                        dropdownDecoration: BoxDecoration(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
+                        buttonStyleData: ButtonStyleData(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          height: 45,
+                        ),
+                        dropdownStyleData: DropdownStyleData(
+                          maxHeight: 350,
+                          padding: EdgeInsets.symmetric(horizontal: 15),
+                          decoration: BoxDecoration(
+                              borderRadius:
+                              BorderRadius.all(Radius.circular(10))),
+                        ),
                         decoration: InputDecoration(
                             isDense: true,
                             contentPadding: EdgeInsets.zero,
@@ -208,13 +212,17 @@ class _LogisticRegSecondPageState extends State<LogisticRegSecondPage> {
                       SizedBox(height: 10),
 
                       DropdownButtonFormField2(
-                        buttonPadding: EdgeInsets.symmetric(horizontal: 20),
-                        buttonHeight: 45,
-                        dropdownMaxHeight: 350,
-                        dropdownPadding: EdgeInsets.symmetric(horizontal: 15),
-                        dropdownDecoration: BoxDecoration(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
+                        buttonStyleData: ButtonStyleData(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          height: 45,
+                        ),
+                        dropdownStyleData: DropdownStyleData(
+                          maxHeight: 350,
+                          padding: EdgeInsets.symmetric(horizontal: 15),
+                          decoration: BoxDecoration(
+                              borderRadius:
+                              BorderRadius.all(Radius.circular(10))),
+                        ),
                         decoration: InputDecoration(
                             isDense: true,
                             contentPadding: EdgeInsets.zero,
@@ -257,13 +265,17 @@ class _LogisticRegSecondPageState extends State<LogisticRegSecondPage> {
                       SizedBox(height: 10),
 
                       DropdownButtonFormField2(
-                        buttonPadding: EdgeInsets.symmetric(horizontal: 20),
-                        buttonHeight: 45,
-                        dropdownMaxHeight: 350,
-                        dropdownPadding: EdgeInsets.symmetric(horizontal: 15),
-                        dropdownDecoration: BoxDecoration(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
+                        buttonStyleData: ButtonStyleData(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          height: 45,
+                        ),
+                        dropdownStyleData: DropdownStyleData(
+                          maxHeight: 350,
+                          padding: EdgeInsets.symmetric(horizontal: 15),
+                          decoration: BoxDecoration(
+                              borderRadius:
+                              BorderRadius.all(Radius.circular(10))),
+                        ),
                         decoration: InputDecoration(
                             isDense: true,
                             contentPadding: EdgeInsets.zero,

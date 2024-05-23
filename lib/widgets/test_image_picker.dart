@@ -11,7 +11,7 @@ class TestImagePicker extends StatefulWidget {
 }
 
 class _TestImagePickerState extends State<TestImagePicker> {
-  PickedFile? _imageFile;
+  XFile? _imageFile;
   final ImagePicker _picker = ImagePicker();
 
   @override
@@ -89,7 +89,7 @@ class _TestImagePickerState extends State<TestImagePicker> {
   }
 
   void takePhoto(ImageSource source) async {
-    final pickedFile = await _picker.getImage(
+    final pickedFile = await _picker.pickImage(
       source: source,
     );
     setState(() {

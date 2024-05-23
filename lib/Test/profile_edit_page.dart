@@ -605,13 +605,17 @@ class _ProfileEditPage extends State<ProfileEditPage> {
                       SizedBox(height: 10),
 
                       DropdownButtonFormField2(
-                        buttonPadding: EdgeInsets.symmetric(horizontal: 20),
-                        buttonHeight: 45,
-                        dropdownMaxHeight: 250,
-                        dropdownPadding: EdgeInsets.symmetric(horizontal: 15),
-                        dropdownDecoration: BoxDecoration(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
+                        buttonStyleData: ButtonStyleData(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          height: 45,
+                        ),
+                        dropdownStyleData: DropdownStyleData(
+                          maxHeight: 350,
+                          padding: EdgeInsets.symmetric(horizontal: 15),
+                          decoration: BoxDecoration(
+                              borderRadius:
+                              BorderRadius.all(Radius.circular(10))),
+                        ),
                         decoration: InputDecoration(
                             labelText: "State",
                             isDense: true,
@@ -661,13 +665,17 @@ class _ProfileEditPage extends State<ProfileEditPage> {
                       SizedBox(height: 10),
 
                       DropdownButtonFormField2(
-                        buttonPadding: EdgeInsets.symmetric(horizontal: 20),
-                        buttonHeight: 45,
-                        dropdownMaxHeight: 250,
-                        dropdownPadding: EdgeInsets.symmetric(horizontal: 15),
-                        dropdownDecoration: BoxDecoration(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
+                        buttonStyleData: ButtonStyleData(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          height: 45,
+                        ),
+                        dropdownStyleData: DropdownStyleData(
+                          maxHeight: 350,
+                          padding: EdgeInsets.symmetric(horizontal: 15),
+                          decoration: BoxDecoration(
+                              borderRadius:
+                              BorderRadius.all(Radius.circular(10))),
+                        ),
                         decoration: InputDecoration(
                             labelText: "District",
                             isDense: true,
@@ -708,13 +716,17 @@ class _ProfileEditPage extends State<ProfileEditPage> {
                       SizedBox(height: 10),
 
                       DropdownButtonFormField2(
-                        buttonPadding: EdgeInsets.symmetric(horizontal: 20),
-                        buttonHeight: 45,
-                        dropdownMaxHeight: 250,
-                        dropdownPadding: EdgeInsets.symmetric(horizontal: 15),
-                        dropdownDecoration: BoxDecoration(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
+                        buttonStyleData: ButtonStyleData(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          height: 45,
+                        ),
+                        dropdownStyleData: DropdownStyleData(
+                          maxHeight: 350,
+                          padding: EdgeInsets.symmetric(horizontal: 15),
+                          decoration: BoxDecoration(
+                              borderRadius:
+                              BorderRadius.all(Radius.circular(10))),
+                        ),
                         decoration: InputDecoration(
                             // label: Text("City/Village"),
                             labelText: "City/Village",
