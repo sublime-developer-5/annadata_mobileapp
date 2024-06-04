@@ -396,31 +396,31 @@ class _DrawerHomePageState extends State<DrawerHomePage> {
                   },
                 ),
 
-          ListTile(
-            leading: Icon(Icons.perm_identity),
-            title: const Text(
-              'Buy membership plans',
-              style: TextStyle(
-                  color: Colors.green,
-                  fontSize: 15,
-                  fontFamily: 'Rubik Regular'),
-            ),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const MembershipDetails(),
-                ),
-              );
-
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => const UserMembershipDetails(),
-              //   ),
-              // );
-            },
-          ),
+          // ListTile(
+          //   leading: Icon(Icons.perm_identity),
+          //   title: const Text(
+          //     'Buy membership plans',
+          //     style: TextStyle(
+          //         color: Colors.green,
+          //         fontSize: 15,
+          //         fontFamily: 'Rubik Regular'),
+          //   ),
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(
+          //         builder: (context) => const MembershipDetails(),
+          //       ),
+          //     );
+          //
+          //     // Navigator.push(
+          //     //   context,
+          //     //   MaterialPageRoute(
+          //     //     builder: (context) => const UserMembershipDetails(),
+          //     //   ),
+          //     // );
+          //   },
+          // ),
 
           userId == null
               ? SizedBox()

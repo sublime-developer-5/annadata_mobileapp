@@ -31,16 +31,17 @@ class _MembershipPanelHomeState extends State<MembershipPanelHome> {
             height: 20,
           ),
 
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  PageTransition(
-                      child: MembershipDetails(),
-                      type: PageTransitionType.fade));
-            },
-            child: Text("Membership Plans"),
-          )
+          //
+          // ElevatedButton(
+          //   onPressed: () {
+          //     Navigator.push(
+          //         context,
+          //         PageTransition(
+          //             child: MembershipDetails(),
+          //             type: PageTransitionType.fade));
+          //   },
+          //   child: Text("Membership Plans"),
+          // )
 
           // Text(
           //   "Minimum Validity of 3 Months",

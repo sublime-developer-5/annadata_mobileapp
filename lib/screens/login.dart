@@ -248,7 +248,7 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 10),
 
                   SizedBox(
-                    width: MediaQuery.of(context).size.width / 3,
+                    width: MediaQuery.of(context).size.width / 2,
                     child: DropdownButtonHideUnderline(
                       child: DropdownButtonFormField2(
                           buttonStyleData: ButtonStyleData(

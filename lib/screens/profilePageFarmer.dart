@@ -493,439 +493,439 @@ class _ProfileTestScreenState extends State<ProfilePageFarmer> {
                               SizedBox(
                                 height: 10,
                               ),
-                              role == "farmer"
-                                  ? Container(
-                                      decoration: BoxDecoration(
-                                          border:
-                                              Border.all(color: Colors.black),
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10))),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          ExpansionTile(
-                                            leading: const Icon(
-                                                Icons.account_balance),
-                                            childrenPadding:
-                                                const EdgeInsets.all(8.0),
-                                            title: const Text("Bank Details",
-                                                style: const TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: 15,
-                                                    fontFamily:
-                                                        'Rubik Regular')),
-                                            children: [
-                                              // Card(
-                                              //   elevation: 10,
-                                              //   shape: RoundedRectangleBorder(
-                                              //       borderRadius:
-                                              //           BorderRadius.circular(20)),
-                                              //   child: ListTile(
-                                              //     title: const Text("Bank Name",
-                                              //         style: TextStyle(
-                                              //             color: Colors.grey,
-                                              //             fontSize: 15,
-                                              //             fontFamily:
-                                              //                 'Rubik Regular')),
-                                              //     subtitle: Text(
-                                              //         item.bankName.toString(),
-                                              //         style: const TextStyle(
-                                              //             color: Colors.black,
-                                              //             fontSize: 18,
-                                              //             fontFamily:
-                                              //                 'Rubik Regular')),
-                                              //   ),
-                                              // ),
-
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  Text("Bank Name",
-                                                      style: TextStyle(
-                                                          color: Colors.grey,
-                                                          fontSize: 15,
-                                                          fontFamily:
-                                                              'Rubik Regular')),
-                                                ],
-                                              ),
-                                              SizedBox(
-                                                height: 5,
-                                              ),
-                                              Container(
-                                                padding: EdgeInsets.symmetric(
-                                                    vertical: 10,
-                                                    horizontal: 10),
-                                                width: MediaQuery.of(context)
-                                                    .size
-                                                    .width,
-                                                decoration: BoxDecoration(
-                                                    border: Border.all(
-                                                      color: Colors.black,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius.circular(
-                                                                10))),
-                                                child: Text(
-                                                  item.bankName.toString(),
-                                                  style: const TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 18,
-                                                      fontFamily:
-                                                          'Rubik Regular'),
-                                                ),
-                                              ),
-
-                                              SizedBox(
-                                                height: 10,
-                                              ),
-                                              // Card(
-                                              //   elevation: 10,
-                                              //   shape: RoundedRectangleBorder(
-                                              //       borderRadius:
-                                              //           BorderRadius.circular(20)),
-                                              //   child: ListTile(
-                                              //     title: const Text(
-                                              //         "Account Number",
-                                              //         style: TextStyle(
-                                              //             color: Colors.grey,
-                                              //             fontSize: 15,
-                                              //             fontFamily:
-                                              //                 'Rubik Regular')),
-                                              //     subtitle: Text(
-                                              //         item.bankAccountNumber
-                                              //             .toString(),
-                                              //         style: const TextStyle(
-                                              //             color: Colors.black,
-                                              //             fontSize: 18,
-                                              //             fontFamily:
-                                              //                 'Rubik Regular')),
-                                              //   ),
-                                              // ),
-
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  Text("Account Number",
-                                                      style: TextStyle(
-                                                          color: Colors.grey,
-                                                          fontSize: 15,
-                                                          fontFamily:
-                                                              'Rubik Regular')),
-                                                ],
-                                              ),
-                                              SizedBox(
-                                                height: 5,
-                                              ),
-                                              Container(
-                                                padding: EdgeInsets.symmetric(
-                                                    vertical: 10,
-                                                    horizontal: 10),
-                                                width: MediaQuery.of(context)
-                                                    .size
-                                                    .width,
-                                                decoration: BoxDecoration(
-                                                    border: Border.all(
-                                                      color: Colors.black,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius.circular(
-                                                                10))),
-                                                child: Text(
-                                                  item.bankAccountNumber
-                                                      .toString(),
-                                                  style: const TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 18,
-                                                      fontFamily:
-                                                          'Rubik Regular'),
-                                                ),
-                                              ),
-
-                                              SizedBox(
-                                                height: 10,
-                                              ),
-                                              // Card(
-                                              //   elevation: 10,
-                                              //   shape: RoundedRectangleBorder(
-                                              //       borderRadius:
-                                              //           BorderRadius.circular(20)),
-                                              //   child: ListTile(
-                                              //     title: const Text("IFSC Code",
-                                              //         style: TextStyle(
-                                              //             color: Colors.grey,
-                                              //             fontSize: 15,
-                                              //             fontFamily:
-                                              //                 'Rubik Regular')),
-                                              //     subtitle: Text(
-                                              //         item.bankIfsc.toString(),
-                                              //         style: const TextStyle(
-                                              //             color: Colors.black,
-                                              //             fontSize: 18,
-                                              //             fontFamily:
-                                              //                 'Rubik Regular')),
-                                              //   ),
-                                              // ),
-
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  Text("IFSC Code",
-                                                      style: TextStyle(
-                                                          color: Colors.grey,
-                                                          fontSize: 15,
-                                                          fontFamily:
-                                                              'Rubik Regular')),
-                                                ],
-                                              ),
-                                              SizedBox(
-                                                height: 5,
-                                              ),
-                                              Container(
-                                                padding: EdgeInsets.symmetric(
-                                                    vertical: 10,
-                                                    horizontal: 10),
-                                                width: MediaQuery.of(context)
-                                                    .size
-                                                    .width,
-                                                decoration: BoxDecoration(
-                                                    border: Border.all(
-                                                      color: Colors.black,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius.circular(
-                                                                10))),
-                                                child: Text(
-                                                  item.bankIfsc.toString(),
-                                                  style: const TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 18,
-                                                      fontFamily:
-                                                          'Rubik Regular'),
-                                                ),
-                                              ),
-
-                                              SizedBox(
-                                                height: 10,
-                                              ),
-                                              // Card(
-                                              //   elevation: 10,
-                                              //   shape: RoundedRectangleBorder(
-                                              //       borderRadius:
-                                              //           BorderRadius.circular(20)),
-                                              //   child: ListTile(
-                                              //     title: const Text("Branch",
-                                              //         style: TextStyle(
-                                              //             color: Colors.grey,
-                                              //             fontSize: 15,
-                                              //             fontFamily:
-                                              //                 'Rubik Regular')),
-                                              //     subtitle: Text(
-                                              //         item.bankBranchName
-                                              //             .toString(),
-                                              //         style: const TextStyle(
-                                              //             color: Colors.black,
-                                              //             fontSize: 18,
-                                              //             fontFamily:
-                                              //                 'Rubik Regular')),
-                                              //   ),
-                                              // ),
-
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  Text("Branch",
-                                                      style: TextStyle(
-                                                          color: Colors.grey,
-                                                          fontSize: 15,
-                                                          fontFamily:
-                                                              'Rubik Regular')),
-                                                ],
-                                              ),
-                                              SizedBox(
-                                                height: 5,
-                                              ),
-                                              Container(
-                                                padding: EdgeInsets.symmetric(
-                                                    vertical: 10,
-                                                    horizontal: 10),
-                                                width: MediaQuery.of(context)
-                                                    .size
-                                                    .width,
-                                                decoration: BoxDecoration(
-                                                    border: Border.all(
-                                                      color: Colors.black,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius.circular(
-                                                                10))),
-                                                child: Text(
-                                                  item.bankBranchName
-                                                      .toString(),
-                                                  style: const TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 18,
-                                                      fontFamily:
-                                                          'Rubik Regular'),
-                                                ),
-                                              ),
-
-                                              SizedBox(
-                                                height: 10,
-                                              ),
-                                              // Card(
-                                              //   elevation: 10,
-                                              //   shape: RoundedRectangleBorder(
-                                              //       borderRadius:
-                                              //           BorderRadius.circular(20)),
-                                              //   child: ListTile(
-                                              //     title: const Text(
-                                              //         "Account Holder Name",
-                                              //         style: TextStyle(
-                                              //             color: Colors.grey,
-                                              //             fontSize: 15,
-                                              //             fontFamily:
-                                              //                 'Rubik Regular')),
-                                              //     subtitle: Text(
-                                              //         item.name.toString(),
-                                              //         style: const TextStyle(
-                                              //             color: Colors.black,
-                                              //             fontSize: 18,
-                                              //             fontFamily:
-                                              //                 'Rubik Regular')),
-                                              //   ),
-                                              // ),
-
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  Text("Account Holder Name",
-                                                      style: TextStyle(
-                                                          color: Colors.grey,
-                                                          fontSize: 15,
-                                                          fontFamily:
-                                                              'Rubik Regular')),
-                                                ],
-                                              ),
-                                              SizedBox(
-                                                height: 5,
-                                              ),
-                                              Container(
-                                                padding: EdgeInsets.symmetric(
-                                                    vertical: 10,
-                                                    horizontal: 10),
-                                                width: MediaQuery.of(context)
-                                                    .size
-                                                    .width,
-                                                decoration: BoxDecoration(
-                                                    border: Border.all(
-                                                      color: Colors.black,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius.circular(
-                                                                10))),
-                                                child: Text(
-                                                  item.bankAccountHolderName
-                                                      .toString(),
-                                                  style: const TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 18,
-                                                      fontFamily:
-                                                          'Rubik Regular'),
-                                                ),
-                                              ),
-
-                                              SizedBox(
-                                                height: 10,
-                                              ),
-                                              // Card(
-                                              //   elevation: 10,
-                                              //   shape: RoundedRectangleBorder(
-                                              //       borderRadius:
-                                              //           BorderRadius.circular(20)),
-                                              //   child: Padding(
-                                              //     padding:
-                                              //         const EdgeInsets.symmetric(
-                                              //             vertical: 10),
-                                              //     child: ListTile(
-                                              //       title: const Text(
-                                              //           "Bank Address",
-                                              //           style: TextStyle(
-                                              //               color: Colors.grey,
-                                              //               fontSize: 15,
-                                              //               fontFamily:
-                                              //                   'Rubik Regular')),
-                                              //       subtitle: Text(
-                                              //           item.bankBranchAddress
-                                              //               .toString(),
-                                              //           style: const TextStyle(
-                                              //               color: Colors.black,
-                                              //               fontSize: 18,
-                                              //               fontFamily:
-                                              //                   'Rubik Regular')),
-                                              //     ),
-                                              //   ),
-                                              // ),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  Text("Bank Address",
-                                                      style: TextStyle(
-                                                          color: Colors.grey,
-                                                          fontSize: 15,
-                                                          fontFamily:
-                                                              'Rubik Regular')),
-                                                ],
-                                              ),
-                                              SizedBox(
-                                                height: 5,
-                                              ),
-                                              Container(
-                                                padding: EdgeInsets.symmetric(
-                                                    vertical: 10,
-                                                    horizontal: 10),
-                                                width: MediaQuery.of(context)
-                                                    .size
-                                                    .width,
-                                                decoration: BoxDecoration(
-                                                    border: Border.all(
-                                                      color: Colors.black,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius.circular(
-                                                                10))),
-                                                child: Text(
-                                                  item.bankBranchAddress
-                                                      .toString(),
-                                                  style: const TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 18,
-                                                      fontFamily:
-                                                          'Rubik Regular'),
-                                                ),
-                                              ),
-
-                                              SizedBox(
-                                                height: 10,
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    )
-                                  : SizedBox()
+                              // role == "farmer"
+                              //     ? Container(
+                              //         decoration: BoxDecoration(
+                              //             border:
+                              //                 Border.all(color: Colors.black),
+                              //             borderRadius: BorderRadius.all(
+                              //                 Radius.circular(10))),
+                              //         child: Column(
+                              //           crossAxisAlignment:
+                              //               CrossAxisAlignment.start,
+                              //           children: [
+                              //             ExpansionTile(
+                              //               leading: const Icon(
+                              //                   Icons.account_balance),
+                              //               childrenPadding:
+                              //                   const EdgeInsets.all(8.0),
+                              //               title: const Text("Bank Details",
+                              //                   style: const TextStyle(
+                              //                       color: Colors.black,
+                              //                       fontSize: 15,
+                              //                       fontFamily:
+                              //                           'Rubik Regular')),
+                              //               children: [
+                              //                 // Card(
+                              //                 //   elevation: 10,
+                              //                 //   shape: RoundedRectangleBorder(
+                              //                 //       borderRadius:
+                              //                 //           BorderRadius.circular(20)),
+                              //                 //   child: ListTile(
+                              //                 //     title: const Text("Bank Name",
+                              //                 //         style: TextStyle(
+                              //                 //             color: Colors.grey,
+                              //                 //             fontSize: 15,
+                              //                 //             fontFamily:
+                              //                 //                 'Rubik Regular')),
+                              //                 //     subtitle: Text(
+                              //                 //         item.bankName.toString(),
+                              //                 //         style: const TextStyle(
+                              //                 //             color: Colors.black,
+                              //                 //             fontSize: 18,
+                              //                 //             fontFamily:
+                              //                 //                 'Rubik Regular')),
+                              //                 //   ),
+                              //                 // ),
+                              //
+                              //                 Row(
+                              //                   mainAxisAlignment:
+                              //                       MainAxisAlignment.start,
+                              //                   children: [
+                              //                     Text("Bank Name",
+                              //                         style: TextStyle(
+                              //                             color: Colors.grey,
+                              //                             fontSize: 15,
+                              //                             fontFamily:
+                              //                                 'Rubik Regular')),
+                              //                   ],
+                              //                 ),
+                              //                 SizedBox(
+                              //                   height: 5,
+                              //                 ),
+                              //                 Container(
+                              //                   padding: EdgeInsets.symmetric(
+                              //                       vertical: 10,
+                              //                       horizontal: 10),
+                              //                   width: MediaQuery.of(context)
+                              //                       .size
+                              //                       .width,
+                              //                   decoration: BoxDecoration(
+                              //                       border: Border.all(
+                              //                         color: Colors.black,
+                              //                       ),
+                              //                       borderRadius:
+                              //                           BorderRadius.all(
+                              //                               Radius.circular(
+                              //                                   10))),
+                              //                   child: Text(
+                              //                     item.bankName.toString(),
+                              //                     style: const TextStyle(
+                              //                         color: Colors.black,
+                              //                         fontSize: 18,
+                              //                         fontFamily:
+                              //                             'Rubik Regular'),
+                              //                   ),
+                              //                 ),
+                              //
+                              //                 SizedBox(
+                              //                   height: 10,
+                              //                 ),
+                              //                 // Card(
+                              //                 //   elevation: 10,
+                              //                 //   shape: RoundedRectangleBorder(
+                              //                 //       borderRadius:
+                              //                 //           BorderRadius.circular(20)),
+                              //                 //   child: ListTile(
+                              //                 //     title: const Text(
+                              //                 //         "Account Number",
+                              //                 //         style: TextStyle(
+                              //                 //             color: Colors.grey,
+                              //                 //             fontSize: 15,
+                              //                 //             fontFamily:
+                              //                 //                 'Rubik Regular')),
+                              //                 //     subtitle: Text(
+                              //                 //         item.bankAccountNumber
+                              //                 //             .toString(),
+                              //                 //         style: const TextStyle(
+                              //                 //             color: Colors.black,
+                              //                 //             fontSize: 18,
+                              //                 //             fontFamily:
+                              //                 //                 'Rubik Regular')),
+                              //                 //   ),
+                              //                 // ),
+                              //
+                              //                 Row(
+                              //                   mainAxisAlignment:
+                              //                       MainAxisAlignment.start,
+                              //                   children: [
+                              //                     Text("Account Number",
+                              //                         style: TextStyle(
+                              //                             color: Colors.grey,
+                              //                             fontSize: 15,
+                              //                             fontFamily:
+                              //                                 'Rubik Regular')),
+                              //                   ],
+                              //                 ),
+                              //                 SizedBox(
+                              //                   height: 5,
+                              //                 ),
+                              //                 Container(
+                              //                   padding: EdgeInsets.symmetric(
+                              //                       vertical: 10,
+                              //                       horizontal: 10),
+                              //                   width: MediaQuery.of(context)
+                              //                       .size
+                              //                       .width,
+                              //                   decoration: BoxDecoration(
+                              //                       border: Border.all(
+                              //                         color: Colors.black,
+                              //                       ),
+                              //                       borderRadius:
+                              //                           BorderRadius.all(
+                              //                               Radius.circular(
+                              //                                   10))),
+                              //                   child: Text(
+                              //                     item.bankAccountNumber
+                              //                         .toString(),
+                              //                     style: const TextStyle(
+                              //                         color: Colors.black,
+                              //                         fontSize: 18,
+                              //                         fontFamily:
+                              //                             'Rubik Regular'),
+                              //                   ),
+                              //                 ),
+                              //
+                              //                 SizedBox(
+                              //                   height: 10,
+                              //                 ),
+                              //                 // Card(
+                              //                 //   elevation: 10,
+                              //                 //   shape: RoundedRectangleBorder(
+                              //                 //       borderRadius:
+                              //                 //           BorderRadius.circular(20)),
+                              //                 //   child: ListTile(
+                              //                 //     title: const Text("IFSC Code",
+                              //                 //         style: TextStyle(
+                              //                 //             color: Colors.grey,
+                              //                 //             fontSize: 15,
+                              //                 //             fontFamily:
+                              //                 //                 'Rubik Regular')),
+                              //                 //     subtitle: Text(
+                              //                 //         item.bankIfsc.toString(),
+                              //                 //         style: const TextStyle(
+                              //                 //             color: Colors.black,
+                              //                 //             fontSize: 18,
+                              //                 //             fontFamily:
+                              //                 //                 'Rubik Regular')),
+                              //                 //   ),
+                              //                 // ),
+                              //
+                              //                 Row(
+                              //                   mainAxisAlignment:
+                              //                       MainAxisAlignment.start,
+                              //                   children: [
+                              //                     Text("IFSC Code",
+                              //                         style: TextStyle(
+                              //                             color: Colors.grey,
+                              //                             fontSize: 15,
+                              //                             fontFamily:
+                              //                                 'Rubik Regular')),
+                              //                   ],
+                              //                 ),
+                              //                 SizedBox(
+                              //                   height: 5,
+                              //                 ),
+                              //                 Container(
+                              //                   padding: EdgeInsets.symmetric(
+                              //                       vertical: 10,
+                              //                       horizontal: 10),
+                              //                   width: MediaQuery.of(context)
+                              //                       .size
+                              //                       .width,
+                              //                   decoration: BoxDecoration(
+                              //                       border: Border.all(
+                              //                         color: Colors.black,
+                              //                       ),
+                              //                       borderRadius:
+                              //                           BorderRadius.all(
+                              //                               Radius.circular(
+                              //                                   10))),
+                              //                   child: Text(
+                              //                     item.bankIfsc.toString(),
+                              //                     style: const TextStyle(
+                              //                         color: Colors.black,
+                              //                         fontSize: 18,
+                              //                         fontFamily:
+                              //                             'Rubik Regular'),
+                              //                   ),
+                              //                 ),
+                              //
+                              //                 SizedBox(
+                              //                   height: 10,
+                              //                 ),
+                              //                 // Card(
+                              //                 //   elevation: 10,
+                              //                 //   shape: RoundedRectangleBorder(
+                              //                 //       borderRadius:
+                              //                 //           BorderRadius.circular(20)),
+                              //                 //   child: ListTile(
+                              //                 //     title: const Text("Branch",
+                              //                 //         style: TextStyle(
+                              //                 //             color: Colors.grey,
+                              //                 //             fontSize: 15,
+                              //                 //             fontFamily:
+                              //                 //                 'Rubik Regular')),
+                              //                 //     subtitle: Text(
+                              //                 //         item.bankBranchName
+                              //                 //             .toString(),
+                              //                 //         style: const TextStyle(
+                              //                 //             color: Colors.black,
+                              //                 //             fontSize: 18,
+                              //                 //             fontFamily:
+                              //                 //                 'Rubik Regular')),
+                              //                 //   ),
+                              //                 // ),
+                              //
+                              //                 Row(
+                              //                   mainAxisAlignment:
+                              //                       MainAxisAlignment.start,
+                              //                   children: [
+                              //                     Text("Branch",
+                              //                         style: TextStyle(
+                              //                             color: Colors.grey,
+                              //                             fontSize: 15,
+                              //                             fontFamily:
+                              //                                 'Rubik Regular')),
+                              //                   ],
+                              //                 ),
+                              //                 SizedBox(
+                              //                   height: 5,
+                              //                 ),
+                              //                 Container(
+                              //                   padding: EdgeInsets.symmetric(
+                              //                       vertical: 10,
+                              //                       horizontal: 10),
+                              //                   width: MediaQuery.of(context)
+                              //                       .size
+                              //                       .width,
+                              //                   decoration: BoxDecoration(
+                              //                       border: Border.all(
+                              //                         color: Colors.black,
+                              //                       ),
+                              //                       borderRadius:
+                              //                           BorderRadius.all(
+                              //                               Radius.circular(
+                              //                                   10))),
+                              //                   child: Text(
+                              //                     item.bankBranchName
+                              //                         .toString(),
+                              //                     style: const TextStyle(
+                              //                         color: Colors.black,
+                              //                         fontSize: 18,
+                              //                         fontFamily:
+                              //                             'Rubik Regular'),
+                              //                   ),
+                              //                 ),
+                              //
+                              //                 SizedBox(
+                              //                   height: 10,
+                              //                 ),
+                              //                 // Card(
+                              //                 //   elevation: 10,
+                              //                 //   shape: RoundedRectangleBorder(
+                              //                 //       borderRadius:
+                              //                 //           BorderRadius.circular(20)),
+                              //                 //   child: ListTile(
+                              //                 //     title: const Text(
+                              //                 //         "Account Holder Name",
+                              //                 //         style: TextStyle(
+                              //                 //             color: Colors.grey,
+                              //                 //             fontSize: 15,
+                              //                 //             fontFamily:
+                              //                 //                 'Rubik Regular')),
+                              //                 //     subtitle: Text(
+                              //                 //         item.name.toString(),
+                              //                 //         style: const TextStyle(
+                              //                 //             color: Colors.black,
+                              //                 //             fontSize: 18,
+                              //                 //             fontFamily:
+                              //                 //                 'Rubik Regular')),
+                              //                 //   ),
+                              //                 // ),
+                              //
+                              //                 Row(
+                              //                   mainAxisAlignment:
+                              //                       MainAxisAlignment.start,
+                              //                   children: [
+                              //                     Text("Account Holder Name",
+                              //                         style: TextStyle(
+                              //                             color: Colors.grey,
+                              //                             fontSize: 15,
+                              //                             fontFamily:
+                              //                                 'Rubik Regular')),
+                              //                   ],
+                              //                 ),
+                              //                 SizedBox(
+                              //                   height: 5,
+                              //                 ),
+                              //                 Container(
+                              //                   padding: EdgeInsets.symmetric(
+                              //                       vertical: 10,
+                              //                       horizontal: 10),
+                              //                   width: MediaQuery.of(context)
+                              //                       .size
+                              //                       .width,
+                              //                   decoration: BoxDecoration(
+                              //                       border: Border.all(
+                              //                         color: Colors.black,
+                              //                       ),
+                              //                       borderRadius:
+                              //                           BorderRadius.all(
+                              //                               Radius.circular(
+                              //                                   10))),
+                              //                   child: Text(
+                              //                     item.bankAccountHolderName
+                              //                         .toString(),
+                              //                     style: const TextStyle(
+                              //                         color: Colors.black,
+                              //                         fontSize: 18,
+                              //                         fontFamily:
+                              //                             'Rubik Regular'),
+                              //                   ),
+                              //                 ),
+                              //
+                              //                 SizedBox(
+                              //                   height: 10,
+                              //                 ),
+                              //                 // Card(
+                              //                 //   elevation: 10,
+                              //                 //   shape: RoundedRectangleBorder(
+                              //                 //       borderRadius:
+                              //                 //           BorderRadius.circular(20)),
+                              //                 //   child: Padding(
+                              //                 //     padding:
+                              //                 //         const EdgeInsets.symmetric(
+                              //                 //             vertical: 10),
+                              //                 //     child: ListTile(
+                              //                 //       title: const Text(
+                              //                 //           "Bank Address",
+                              //                 //           style: TextStyle(
+                              //                 //               color: Colors.grey,
+                              //                 //               fontSize: 15,
+                              //                 //               fontFamily:
+                              //                 //                   'Rubik Regular')),
+                              //                 //       subtitle: Text(
+                              //                 //           item.bankBranchAddress
+                              //                 //               .toString(),
+                              //                 //           style: const TextStyle(
+                              //                 //               color: Colors.black,
+                              //                 //               fontSize: 18,
+                              //                 //               fontFamily:
+                              //                 //                   'Rubik Regular')),
+                              //                 //     ),
+                              //                 //   ),
+                              //                 // ),
+                              //                 Row(
+                              //                   mainAxisAlignment:
+                              //                       MainAxisAlignment.start,
+                              //                   children: [
+                              //                     Text("Bank Address",
+                              //                         style: TextStyle(
+                              //                             color: Colors.grey,
+                              //                             fontSize: 15,
+                              //                             fontFamily:
+                              //                                 'Rubik Regular')),
+                              //                   ],
+                              //                 ),
+                              //                 SizedBox(
+                              //                   height: 5,
+                              //                 ),
+                              //                 Container(
+                              //                   padding: EdgeInsets.symmetric(
+                              //                       vertical: 10,
+                              //                       horizontal: 10),
+                              //                   width: MediaQuery.of(context)
+                              //                       .size
+                              //                       .width,
+                              //                   decoration: BoxDecoration(
+                              //                       border: Border.all(
+                              //                         color: Colors.black,
+                              //                       ),
+                              //                       borderRadius:
+                              //                           BorderRadius.all(
+                              //                               Radius.circular(
+                              //                                   10))),
+                              //                   child: Text(
+                              //                     item.bankBranchAddress
+                              //                         .toString(),
+                              //                     style: const TextStyle(
+                              //                         color: Colors.black,
+                              //                         fontSize: 18,
+                              //                         fontFamily:
+                              //                             'Rubik Regular'),
+                              //                   ),
+                              //                 ),
+                              //
+                              //                 SizedBox(
+                              //                   height: 10,
+                              //                 ),
+                              //               ],
+                              //             ),
+                              //           ],
+                              //         ),
+                              //       )
+                              //     : SizedBox()
                             ],
                           ),
                         ),

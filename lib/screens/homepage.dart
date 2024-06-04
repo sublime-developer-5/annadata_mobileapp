@@ -171,67 +171,62 @@ class _HomePageState extends State<HomePage> {
       //       ),
       //     ];
       //   },
-      body: Column(
-        children: [
-          Flexible(
-            child: ListView(
-              children: [
-                const BannerSlider(),
-
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 5),
-                  height: 2,
-                  color: Color.fromARGB(255, 223, 221, 221),
-                ),
-
-                FacilityPanel(),
-
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 5),
-                  height: 2,
-                  color: Color.fromARGB(255, 223, 221, 221),
-                ),
-
-                SizedBox(
-                  height: 10,
-                ),
-
-                ShopByCatHome(),
-
-                SizedBox(
-                  height: 10,
-                ),
-
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 5),
-                  height: 2,
-                  color: Color.fromARGB(255, 223, 221, 221),
-                ),
-
-                MembershipPanelHome(),
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 5),
-                  height: 2,
-                  color: Color.fromARGB(255, 223, 221, 221),
-                ),
-
-                BlogsSliderHome(),
-
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 5),
-                  height: 2,
-                  color: Color.fromARGB(255, 223, 221, 221),
-                ),
-
-                // const CategorySliderHorizontal(),
-
-                // const CategoryPanle(),
-                //const SubCardCategory(),
-              ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const BannerSlider(),
+        
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 5),
+              height: 2,
+              color: Color.fromARGB(255, 223, 221, 221),
             ),
-          ),
-          //const BottumNavBar(),
-        ],
+        
+            FacilityPanel(),
+        
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 5),
+              height: 2,
+              color: Color.fromARGB(255, 223, 221, 221),
+            ),
+        
+            SizedBox(
+              height: 10,
+            ),
+        
+            ShopByCatHome(),
+        
+            SizedBox(
+              height: 10,
+            ),
+        
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 5),
+              height: 2,
+              color: Color.fromARGB(255, 223, 221, 221),
+            ),
+        
+            MembershipPanelHome(),
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 5),
+              height: 2,
+              color: Color.fromARGB(255, 223, 221, 221),
+            ),
+        
+            BlogsSliderHome(),
+        
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 5),
+              height: 2,
+              color: Color.fromARGB(255, 223, 221, 221),
+            ),
+        
+            // const CategorySliderHorizontal(),
+        
+            // const CategoryPanle(),
+            //const SubCardCategory(),
+          ],
+        ),
       ),
     );
   }
