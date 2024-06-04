@@ -489,7 +489,7 @@ class _ProductAdd_SecondPageState extends State<ProductAdd_SecondPage> {
 
   Future<List<CategoryListData>?> getCategoryList() async {
     // Base URL
-    var baseurl = "EnvConfigs.appBaseUrlcategory/list";
+    var baseurl = EnvConfigs.appBaseUrl+"category/list";
 
     Dio dio = Dio();
 
@@ -513,7 +513,7 @@ class _ProductAdd_SecondPageState extends State<ProductAdd_SecondPage> {
   Future<List<SubCatData>?> getSubCategoryList() async {
     // Base URL
     var baseurl =
-        "EnvConfigs.appBaseUrlsub_category/list?category_id=$catId_val";
+        EnvConfigs.appBaseUrl+ "sub_category/list?category_id=$catId_val";
 
     Dio dio = Dio();
 

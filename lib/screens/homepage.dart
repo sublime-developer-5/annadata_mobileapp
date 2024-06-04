@@ -16,6 +16,8 @@ import 'package:page_transition/page_transition.dart';
 import 'package:search_page/search_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../env.dart';
+
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
 
@@ -44,7 +46,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     getToken();
     super.initState();
-    // getCategoryList();
+     getCategoryList();
   }
 
   @override
@@ -234,25 +236,25 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  // Future<List<CategoryListData>?> getCategoryList() async {
-  //   // Base URL
-  //   var baseurl = "EnvConfigs.appBaseUrlcategory/list";
+  Future<List<CategoryListData>?> getCategoryList() async {
+    // Base URL
+    var baseurl = EnvConfigs.appBaseUrl+"category/list";
 
-  //   Dio dio = Dio();
+    Dio dio = Dio();
 
-  //   try {
-  //     Response response = await dio.get(baseurl);
-  //     CategoryList res = CategoryList.fromJson(response.data);
+    try {
+      Response response = await dio.get(baseurl);
+      CategoryList res = CategoryList.fromJson(response.data);
 
-  //     setState(() {
-  //       categoryList = res.data!;
-  //     });
+      setState(() {
+        categoryList = res.data!;
+      });
 
-  //     log(categoryList.toString());
+      log(categoryList.toString());
 
-  //     return res.data;
-  //   } on DioError catch (e) {
-  //     print(e);
-  //   }
-  // }
+      return res.data;
+    } on DioError catch (e) {
+      print(e);
+    }
+  }
 }

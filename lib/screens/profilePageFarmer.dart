@@ -67,7 +67,6 @@ class _ProfileTestScreenState extends State<ProfilePageFarmer> {
           : FutureBuilder<UserEditInfo?>(
               future: getUserInfo(),
               builder: (context, snapshot) {
-                print("snapshot1");
                 // print(snapshot.data!.success);
                 var item = snapshot.data?.data![0];
                 if (!snapshot.hasData) {

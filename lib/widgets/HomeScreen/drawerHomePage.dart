@@ -28,7 +28,7 @@ class _DrawerHomePageState extends State<DrawerHomePage> {
   String? userId;
   String? userRole;
   String? userName;
-  String? userProfileImage;
+  String userProfileImage ="http://192.168.0.117:4000/uploads/user/profile_photo/default.jpg";
   var proDefaultImg = "assets/Logo-modified.png";
   String contactUsPhone = "(+880) 183 8288 389";
   String contactUsEmail = "hello@annadatabharat.com";
@@ -158,16 +158,30 @@ class _DrawerHomePageState extends State<DrawerHomePage> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       CircleAvatar(
-                        backgroundColor: Colors.orange,
-                        radius: 47,
-                        child: CircleAvatar(
-                          radius: 45,
-                          foregroundImage: NetworkImage(
-                            userProfileImage.toString(),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(50),
+                          child: Image.network(userProfileImage.toString(),
+                            // loadingBuilder: (c,w,i){
+                            // return CircularProgressIndicator();
+                            // },
+                            errorBuilder: (c,o,s){
+                            return Icon(Icons.close);
+
+                            },
                           ),
-                          backgroundImage: AssetImage(proDefaultImg),
                         ),
                       ),
+                      // CircleAvatar(
+                      //   backgroundColor: Colors.orange,
+                      //   radius: 47,
+                      //   child: CircleAvatar(
+                      //     radius: 45,
+                      //     foregroundImage: NetworkImage(
+                      //       userProfileImage.toString(),
+                      //     ),
+                      //     backgroundImage: AssetImage(proDefaultImg),
+                      //   ),
+                      // ),
                       SizedBox(
                         height: 10,
                       ),
@@ -604,6 +618,9 @@ class _DrawerHomePageState extends State<DrawerHomePage> {
       setState(() {
         userProfileImage = item.profilePhoto.toString();
         userName = item.name.toString();
+      });
+      setState(() {
+
       });
 
       print("******userProfileImage*****");

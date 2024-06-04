@@ -1,4 +1,4 @@
-package com.annadatabharat;
+package com.sublime.annadata;
 
 import io.flutter.embedding.android.FlutterActivity;
 

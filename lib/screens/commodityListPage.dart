@@ -261,7 +261,7 @@ class _CommodityListPgeState extends State<CommodityListPge> {
                       itemCount: snapShot.data?.length,
                       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                           maxCrossAxisExtent: 150,
-                          childAspectRatio: 3 / 3.8,
+                          childAspectRatio: 2.5 / 3.8,
                           crossAxisSpacing: 5,
                           mainAxisSpacing: 5),
                       shrinkWrap: true,

@@ -535,7 +535,7 @@ class _TraderRegSecondPageState extends State<TraderRegSecondPage> {
       Dio dio = Dio(BaseOptions(
           headers: headers, connectTimeout: 8000, receiveTimeout: 8000));
       final response =
-          await dio.get("EnvConfigs.appBaseUrlstate/list");
+          await dio.get(EnvConfigs.appBaseUrl+"state/list");
       String strTemp = response.toString();
       final StateList stateList = StateList.fromJson(response.data);
       setState(() {
@@ -554,7 +554,7 @@ class _TraderRegSecondPageState extends State<TraderRegSecondPage> {
       Dio dio = Dio(BaseOptions(
           headers: headers, connectTimeout: 8000, receiveTimeout: 8000));
       final response = await dio
-          .post("EnvConfigs.appBaseUrlcity/list_by_district_id",
+          .post(EnvConfigs.appBaseUrl+"city/list_by_district_id",
               //data: {"state_id": state_id});
               data: {"district_id": _Select_District.toString()});
       String strTemp = response.toString();
@@ -574,7 +574,7 @@ class _TraderRegSecondPageState extends State<TraderRegSecondPage> {
       final Map<String, String> headers = {};
       Dio dio = Dio(BaseOptions(headers: headers));
       final response = await dio.get(
-          "EnvConfigs.appBaseUrldistrict/list_by_state_id?state_id=$_Select_State");
+          EnvConfigs.appBaseUrl+"district/list_by_state_id?state_id=$_Select_State");
       String strTemp = response.toString();
       final DistrictList distList = DistrictList.fromJson(response.data);
       setState(() {

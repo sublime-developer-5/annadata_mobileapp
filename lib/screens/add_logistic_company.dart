@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../Model/registerRes.dart';
+import '../env.dart';
 
 class AddLogisticCompany extends StatefulWidget {
   const AddLogisticCompany({Key? key}) : super(key: key);
@@ -394,7 +395,7 @@ class _AddLogisticCompanyState extends State<AddLogisticCompany> {
       final Map<String, String> headers = {};
       Dio dio = Dio();
       final response = await dio.post(
-          "EnvConfigs.appBaseUrllogistic/add",
+          EnvConfigs.appBaseUrl+"logistic/add",
           data: formData);
 
       String strTemp = response.toString();

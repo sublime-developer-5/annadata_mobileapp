@@ -674,7 +674,7 @@ class _ProductPageState extends State<ProductPage>
                                                             'Rubik Regular'),
                                                   ),
                                                   SizedBox(
-                                                    height: 30,
+                                                    height: 50,
                                                     child: TextButton(
                                                         onPressed: () async {
                                                           final url =
@@ -693,7 +693,7 @@ class _ProductPageState extends State<ProductPage>
                                                 ],
                                               ),
                                               const SizedBox(
-                                                height: 10,
+                                                height: 20,
                                               ),
                                               const Text(
                                                 "Email ID:",
@@ -730,7 +730,7 @@ class _ProductPageState extends State<ProductPage>
                                                     ),
                                                   ),
                                                   SizedBox(
-                                                    height: 30,
+                                                    height: 50,
                                                     child: TextButton(
                                                         onPressed: () async {
                                                           final url =
@@ -744,7 +744,7 @@ class _ProductPageState extends State<ProductPage>
                                                           }
                                                         },
                                                         child: const Text(
-                                                            "Email Now")),
+                                                            "Email\nNow")),
                                                   )
                                                 ],
                                               ),
