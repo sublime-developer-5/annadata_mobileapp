@@ -1,5 +1,5 @@
 import 'dart:developer';
-
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:annadata/Model/categoryCopy.dart';
 import 'package:annadata/screens/MemberShip/membership_plan_page.dart';
 import 'package:annadata/screens/MemberShip/user_membership_details.dart';
@@ -8,7 +8,9 @@ import 'package:annadata/screens/commodityListPage.dart';
 import 'package:annadata/screens/product_addByFarmer.dart';
 import 'package:annadata/widgets/HomeScreen/homeBottumNavBar.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gradient_slide_to_act/gradient_slide_to_act.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -16,7 +18,6 @@ import '../../Model/user_edit_info_model.dart';
 import '../../env.dart';
 import '../../screens/categoryFilterPage.dart';
 import '../../screens/change_user_password.dart';
-
 class DrawerHomePage extends StatefulWidget {
   DrawerHomePage({Key? key}) : super(key: key);
 
@@ -28,7 +29,8 @@ class _DrawerHomePageState extends State<DrawerHomePage> {
   String? userId;
   String? userRole;
   String? userName;
-  String userProfileImage ="http://192.168.0.117:4000/uploads/user/profile_photo/default.jpg";
+  String userProfileImage =
+      "http://192.168.0.117:4000/uploads/user/profile_photo/default.jpg";
   var proDefaultImg = "assets/Logo-modified.png";
   String contactUsPhone = "(+880) 183 8288 389";
   String contactUsEmail = "hello@annadatabharat.com";
@@ -37,7 +39,7 @@ class _DrawerHomePageState extends State<DrawerHomePage> {
 
   Future<List<CategoryListData>?> getCategoryList() async {
     // Base URL
-    var baseurl = EnvConfigs.appBaseUrl+"category/list";
+    var baseurl = EnvConfigs.appBaseUrl + "category/list";
 
     Dio dio = Dio();
 
@@ -104,6 +106,203 @@ class _DrawerHomePageState extends State<DrawerHomePage> {
     );
   }
 
+  deleteAccount() {
+    return ListTile(
+      leading: Icon(Icons.delete_forever),
+      title: const Text(
+        'Delete Account',
+        style: TextStyle(
+            color: Colors.red, fontSize: 15, fontFamily: 'Rubik Regular'),
+      ),
+      onTap: () {
+        TextEditingController userPass = TextEditingController();
+        bool _hidePass = true;
+        bool isLoading = false;
+        bool isSliderEnable = false;
+        String message ="";
+        showModalBottomSheet(
+            isScrollControlled: true,
+            context: context,
+            builder: (context) {
+
+              return Container(
+                padding: EdgeInsets.only(
+                    bottom: MediaQuery.of(context).viewInsets.bottom),
+                child: StatefulBuilder(
+                  builder: (BuildContext context,
+                      void Function(void Function()) setState) {
+                    return Container(
+                      constraints: BoxConstraints(
+                          maxHeight: MediaQuery.of(context).size.height * 0.5),
+                      width: MediaQuery.of(context).size.width,
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              "Delete My Account",
+                              style: TextStyle(
+                                  color: Colors.red,
+                                  fontSize: 20,
+                                  fontFamily: 'Rubik Regular'),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              "Your going to delete your account. This action is irreriversible and all your data will be deleted in 24 hours, Kindly proceed with caution",
+                              style: TextStyle(
+                                  color: Colors.black45,
+                                  fontSize: 20,
+                                  fontFamily: 'Rubik Regular'),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            TextFormField(
+                              onChanged: (s) {
+                                message="";
+                                if (s.length > 6) {
+                                  isSliderEnable = true;
+                                  setState(() {});
+                                } else {
+                                  isSliderEnable = false;
+                                  setState(() {});
+                                }
+                              },
+                              controller: userPass,
+                              obscureText: _hidePass,
+                              decoration: InputDecoration(
+                                  prefixIcon: const Icon(Icons.lock),
+                                  suffixIcon: GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        _hidePass = !_hidePass;
+                                      });
+                                    },
+                                    child: Icon(_hidePass
+                                        ? Icons.visibility_off
+                                        : Icons.visibility),
+                                  ),
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(25),
+                                      borderSide: const BorderSide(
+                                          color: Colors.orange)),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      vertical: 5, horizontal: 15),
+                                  hintText: 'Password',
+                                  hintStyle:
+                                      TextStyle(fontFamily: 'Rubik Regular'),
+                                  enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(25),
+                                      borderSide: const BorderSide(
+                                          color: Colors.orange)),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(25),
+                                      borderSide: const BorderSide(
+                                          color: Colors.green))),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              message,
+                              style: TextStyle(
+                                  color: Colors.red,
+                                  fontSize: 15,
+                                  fontFamily: 'Rubik Regular'),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.red.withOpacity(0.5),
+                                  borderRadius: BorderRadius.circular(50)),
+                              child: Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: isLoading
+                                    ? const SizedBox(
+                                        height: 52,
+                                        width: 52,
+                                        child: CircularProgressIndicator(
+                                          color: Colors.red,
+                                        ),
+                                      )
+                                    : Stack(
+                                        children: [
+                                          GradientSlideToAct(
+                                            text: "Slide To Delete",
+                                            dragableIconBackgroundColor:
+                                                Colors.red,
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.6,
+                                            dragableIcon: Icons.arrow_forward,
+                                            submittedIcon: Icons.delete_forever,
+                                            textStyle: TextStyle(
+                                                color: Colors.red,
+                                                fontSize: 15),
+                                            backgroundColor: Colors.white70,
+                                            onSubmit: () async {
+
+                                              isLoading = true;
+                                              setState(() {});
+                                              List deleteResponse =
+                                                  await deleteAccountApiCall(
+                                                      userPass.text,context);
+                                              setState(() {});
+                                              message =deleteResponse[1];
+                                              if (deleteResponse[0]) {
+                                                clearUserData();
+                                                Navigator.pop(context,true);
+                                              } else {
+
+                                                isLoading = false;
+                                                userPass.clear();
+                                              }
+                                              isSliderEnable =false;
+                                              setState((){});
+                                            },
+                                          ),
+                                          isSliderEnable
+                                              ? SizedBox()
+                                              : Positioned.fill(
+                                                  child: Container(
+                                                  decoration: BoxDecoration(
+                                                      color: Colors.white60,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              50)),
+                                                ))
+                                        ],
+                                      ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              );
+            }).then((value) {
+              if(value==true){
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => BottumNavBar(pageIndex: 1)));
+              }
+
+        });
+      },
+    );
+  }
+
   getUserID() async {
     final prefs = await SharedPreferences.getInstance();
 
@@ -160,13 +359,13 @@ class _DrawerHomePageState extends State<DrawerHomePage> {
                       CircleAvatar(
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(50),
-                          child: Image.network(userProfileImage.toString(),
+                          child: Image.network(
+                            userProfileImage.toString(),
                             // loadingBuilder: (c,w,i){
                             // return CircularProgressIndicator();
                             // },
-                            errorBuilder: (c,o,s){
-                            return Icon(Icons.close);
-
+                            errorBuilder: (c, o, s) {
+                              return Icon(Icons.close);
                             },
                           ),
                         ),
@@ -536,7 +735,7 @@ class _DrawerHomePageState extends State<DrawerHomePage> {
 
           // Login from drawer
           userId == null ? SizedBox() : logOut(),
-
+          userId == null ? SizedBox() : deleteAccount(),
           //logOut()
 
           // Register DropDown in Drawer
@@ -581,9 +780,44 @@ class _DrawerHomePageState extends State<DrawerHomePage> {
     );
   }
 
+  Future<List> deleteAccountApiCall(String password,context) async {
+    // Base URL
+    var baseurl = EnvConfigs.appBaseUrl + "user/delete";
+
+    Dio dio = Dio();
+    final prefs = await SharedPreferences.getInstance();
+    var userId = prefs.getString('_id');
+    var userToken = prefs.getString('auth_token');
+
+    var formData = FormData.fromMap({
+      'user_id': userId,
+      'password': password,
+    });
+
+    try {
+      Response response = await dio.post(
+        baseurl,
+        options: Options(headers: {'x-access-token': userToken}),
+        data: formData,
+      );
+      print(response.statusCode);
+      print(response.data);
+      if (response.data != null) {
+        if (response.data["success"]) {
+          return [true,response.data["message"]];
+        }
+
+        return [false,response.data["message"]];
+      }
+    } on DioError catch (e) {
+      print(e);
+    }
+    return [false,"Failed"];
+  }
+
   Future<UserEditInfo?> getUserInfo() async {
     // Base URL
-    var baseurl = EnvConfigs.appBaseUrl+"user/edit";
+    var baseurl = EnvConfigs.appBaseUrl + "user/edit";
 
     Dio dio = Dio();
     final prefs = await SharedPreferences.getInstance();
@@ -619,9 +853,7 @@ class _DrawerHomePageState extends State<DrawerHomePage> {
         userProfileImage = item.profilePhoto.toString();
         userName = item.name.toString();
       });
-      setState(() {
-
-      });
+      setState(() {});
 
       print("******userProfileImage*****");
       print(userProfileImage);
