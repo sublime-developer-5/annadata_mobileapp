@@ -37,8 +37,8 @@ class _TraderRegSecondPageState extends State<TraderRegSecondPage> {
 
   String? _fileName = "UPLOAD DOCUMENT";
   String? _fileName2 = "UPLOAD DOCUMENT";
-  String? filepath1;
-  String? filepath2;
+  String? filepath1 ="";
+  String? filepath2="";
 
   final _formKey = GlobalKey<FormState>();
   final GlobalKey<FormFieldState> _statekey = GlobalKey<FormFieldState>();
@@ -363,7 +363,7 @@ class _TraderRegSecondPageState extends State<TraderRegSecondPage> {
                       SizedBox(height: 10),
 
                       Text(
-                        'Upload Passbook Front Page / Cancelled Cheque',
+                        'Upload Passbook Front Page / Cancelled Cheque (optional)',
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 15),
                       ),
@@ -411,9 +411,9 @@ class _TraderRegSecondPageState extends State<TraderRegSecondPage> {
                                 borderRadius: BorderRadius.circular(25),
                                 borderSide: BorderSide(color: Colors.green))),
                         validator: (_filename) {
-                          if (_fileName == "UPLOAD DOCUMENT") {
-                            return '*Upload document required';
-                          } else
+                          // if (_fileName == "UPLOAD DOCUMENT") {
+                          //   return '*Upload document required';
+                          // } else
                             return null;
                         },
                       ), //Document 1
@@ -421,7 +421,7 @@ class _TraderRegSecondPageState extends State<TraderRegSecondPage> {
                       SizedBox(height: 10),
 
                       Text(
-                        'Upload Identity Proof (Adhaar card / Pan card / Voting card',
+                        'Upload Identity Proof (Adhaar card / Pan card / Voting card (optional)' ,
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 15),
                       ),
@@ -469,10 +469,10 @@ class _TraderRegSecondPageState extends State<TraderRegSecondPage> {
                                 borderRadius: BorderRadius.circular(25),
                                 borderSide: BorderSide(color: Colors.green))),
                         validator: (_filename) {
-                          if (_fileName2 == "UPLOAD DOCUMENT") {
-                            return '*Upload document required';
-                          } else
-                            return null;
+                          // if (_fileName2 == "UPLOAD DOCUMENT") {
+                          //   return '*Upload document required';
+                          // } else
+                          //   return null;
                         },
                       ), //Document 2
 
@@ -615,9 +615,11 @@ class _TraderRegSecondPageState extends State<TraderRegSecondPage> {
       'gender': gender,
       'address': address,
       'role': 'buyer',
-      'document_one': await MultipartFile.fromFile(filepath1.toString(),
-          filename: filepath1),
-      'document_two': await MultipartFile.fromFile(filepath2.toString(),
+      'document_one':(filepath1 == "")
+          ? "" :await MultipartFile.fromFile(filepath1.toString(),
+          filename: filepath2),
+      'document_two':filepath1 == ""
+          ? "" :await MultipartFile.fromFile(filepath2.toString(),
           filename: filepath2),
       // 'document_two': await MultipartFile.fromFile(profileImg.toString()),
 

@@ -144,22 +144,22 @@ class _FarmerRegistrationFirstpageState
                         color: Colors.orange,
                       ),
                     ),
-                    Container(
-                      height: 2,
-                      width: 40,
-                      color: Colors.orange,
-                    ),
-                    Container(
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.orange, width: 2),
-                          shape: BoxShape.circle),
-                      child: const Icon(
-                        Icons.account_balance_sharp,
-                        color: Colors.orange,
-                      ),
-                    ),
+                    // Container(
+                    //   height: 2,
+                    //   width: 40,
+                    //   color: Colors.orange,
+                    // ),
+                    // Container(
+                    //   width: 40,
+                    //   height: 40,
+                    //   decoration: BoxDecoration(
+                    //       border: Border.all(color: Colors.orange, width: 2),
+                    //       shape: BoxShape.circle),
+                    //   child: const Icon(
+                    //     Icons.account_balance_sharp,
+                    //     color: Colors.orange,
+                    //   ),
+                    // ),
                   ],
                 ),
               ),

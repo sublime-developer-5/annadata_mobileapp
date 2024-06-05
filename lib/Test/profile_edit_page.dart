@@ -901,7 +901,7 @@ class _ProfileEditPage extends State<ProfileEditPage> {
                         // },
                       ),
                       SizedBox(height: 25),
-                      userRole == "farmer" ? bankDetails() : SizedBox()
+                      // userRole == "farmer" ? bankDetails() : SizedBox()
                     ],
                   ),
                 ),

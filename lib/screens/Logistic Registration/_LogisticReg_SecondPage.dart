@@ -41,8 +41,8 @@ class _LogisticRegSecondPageState extends State<LogisticRegSecondPage> {
 
   String? _fileName = "Upload document";
   String? _fileName2 = "Upload document";
-  String? filepath1;
-  String? filepath2;
+  String? filepath1 ="";
+  String? filepath2="";
 
   final _formKey = GlobalKey<FormState>();
   final GlobalKey<FormFieldState> _statekey = GlobalKey<FormFieldState>();
@@ -353,7 +353,7 @@ class _LogisticRegSecondPageState extends State<LogisticRegSecondPage> {
                       SizedBox(height: 10),
 
                       Text(
-                        'Upload (Aadhar Card))',
+                        'Upload (Aadhar Card)) Optional',
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 15),
                       ),
@@ -401,9 +401,9 @@ class _LogisticRegSecondPageState extends State<LogisticRegSecondPage> {
                                 borderRadius: BorderRadius.circular(25),
                                 borderSide: BorderSide(color: Colors.green))),
                         validator: (text) {
-                          if (_fileName == "Upload document") {
-                            return '*Upload document required';
-                          } else
+                          // if (_fileName == "Upload document") {
+                          //   return '*Upload document required';
+                          // } else
                             return null;
                         },
                       ), //Document 1
@@ -411,7 +411,7 @@ class _LogisticRegSecondPageState extends State<LogisticRegSecondPage> {
                       SizedBox(height: 10),
 
                       Text(
-                        'Upload (PAN Card)',
+                        'Upload (PAN Card) Optional',
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 15),
                       ),
@@ -459,9 +459,9 @@ class _LogisticRegSecondPageState extends State<LogisticRegSecondPage> {
                                 borderRadius: BorderRadius.circular(25),
                                 borderSide: BorderSide(color: Colors.green))),
                         validator: (text) {
-                          if (_fileName2 == "Upload document") {
-                            return '*Upload document required';
-                          } else
+                          // if (_fileName2 == "Upload document") {
+                          //   return '*Upload document required';
+                          // } else
                             return null;
                         },
                       ), //Document 2
@@ -610,9 +610,11 @@ class _LogisticRegSecondPageState extends State<LogisticRegSecondPage> {
       'gender': gender,
       'address': address,
       'role': 'logistics',
-      'document_one': await MultipartFile.fromFile(filepath1.toString(),
-          filename: filepath1),
-      'document_two': await MultipartFile.fromFile(filepath2.toString(),
+      'document_one':(filepath1 == "")
+          ? "" :await MultipartFile.fromFile(filepath1.toString(),
+          filename: filepath2),
+      'document_two':filepath1 == ""
+          ? "" :await MultipartFile.fromFile(filepath2.toString(),
           filename: filepath2),
       // 'document_two': await MultipartFile.fromFile(profileImg.toString()),
 

@@ -465,12 +465,12 @@ class _ProfileTestScreenState extends State<ProfilePageFarmer> {
                                           //       item.documentOne.toString()),
                                           // ),
 
-                                          ElevatedButton(
+                                          item.documentOne!=null?   ElevatedButton(
                                               onPressed: () => openFile(
                                                   url: item.documentOne,
                                                   fileName:
                                                       item.documentOneName),
-                                              child: Text("Document 1")),
+                                              child: Text("Document 1")):SizedBox(),
                                           // SizedBox(
                                           //   width: MediaQuery.of(context)
                                           //           .size
@@ -480,12 +480,12 @@ class _ProfileTestScreenState extends State<ProfilePageFarmer> {
                                           //       item.documentTwo.toString()),
                                           // )
 
-                                          ElevatedButton(
+                                          item.documentTwo!=null?   ElevatedButton(
                                               onPressed: () => openFile(
                                                   url: item.documentTwo,
                                                   fileName:
                                                       item.documentTwoName),
-                                              child: Text("Document 2")),
+                                              child: Text("Document 2")):SizedBox(),
                                         ],
                                       )
                                     ],

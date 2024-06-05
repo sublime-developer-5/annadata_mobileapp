@@ -12,6 +12,7 @@ import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../Model/modelCityList.dart';
+import '../../Model/registerRes.dart';
 import '../../env.dart';
 
 class FarmerRegSecondPage extends StatefulWidget {
@@ -53,6 +54,23 @@ class _FarmerRegSecondPageState extends State<FarmerRegSecondPage> {
   TextEditingController picodeController = TextEditingController();
   TextEditingController stateDropdownController = TextEditingController();
 
+  String? profileImg;
+  String? fname;
+  String? email;
+  String? countryCode;
+  String? mobileNo;
+  String? password;
+  String? dob;
+  String? gender;
+  String? addressFarmer;
+  String? stateId;
+  String? districtId;
+  String? cityId;
+  String? pincode;
+  String? doc1="";
+  String? doc2="";
+  String? message;
+
 // Store Data
   void setData() async {
     final prefs = await SharedPreferences.getInstance();
@@ -77,8 +95,48 @@ class _FarmerRegSecondPageState extends State<FarmerRegSecondPage> {
     log(filepath2.toString());
   }
 
+  void getData() async {
+    final prefs = await SharedPreferences.getInstance();
+    final List<String>? items = prefs.getStringList('registerItem1');
+    final List<String>? items2 = prefs.getStringList('registerItem2');
+    log("Saved Item List");
+    setState(() {
+      fname = items![1];
+      profileImg = items[0];
+      email = items[2];
+      countryCode = items[3];
+      mobileNo = items[4];
+      password = items[5];
+      dob = items[6];
+      gender = items[7];
+      addressFarmer = items[8];
+      stateId = items2![0];
+      districtId = items2[1];
+      cityId = items2[2];
+      pincode = items2[3];
+      doc1 = items2[4];
+      doc2 = items2[5];
+    });
+    log(items![0]);
+    log(items[1]);
+    log(items[2]);
+    log(items[3]);
+    log(items[4]);
+    log(items[5]);
+    log(items[6]);
+    log(items[7]);
+    log(items[8]);
+    log(items2![0]);
+    log(items2[1]);
+    log(items2[2]);
+    log(items2[3]);
+    log(items2[4]);
+    log(items2[5]);
+  }
+
   @override
   void initState() {
+    getData();
     getStateList();
     // getCitytList();
     super.initState();
@@ -91,19 +149,19 @@ class _FarmerRegSecondPageState extends State<FarmerRegSecondPage> {
     debugPrint(state_id.toString());
   }
 
-  void getData() async {
-    final prefs = await SharedPreferences.getInstance();
-    final List<String>? items = prefs.getStringList('registerItem1');
-    log("Saved Item List");
-    log(items![0]);
-    log(items[1]);
-    log(items[2]);
-    log(items[3]);
-    log(items[4]);
-    log(items[5]);
-    log(items[6]);
-    log(items[7]);
-  }
+  // void getData() async {
+  //   final prefs = await SharedPreferences.getInstance();
+  //   final List<String>? items = prefs.getStringList('registerItem1');
+  //   log("Saved Item List");
+  //   log(items![0]);
+  //   log(items[1]);
+  //   log(items[2]);
+  //   log(items[3]);
+  //   log(items[4]);
+  //   log(items[5]);
+  //   log(items[6]);
+  //   log(items[7]);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -150,22 +208,22 @@ class _FarmerRegSecondPageState extends State<FarmerRegSecondPage> {
                         color: Colors.orange,
                       ),
                     ),
-                    Container(
-                      height: 2,
-                      width: 40,
-                      color: Colors.orange,
-                    ),
-                    Container(
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.orange, width: 2),
-                          shape: BoxShape.circle),
-                      child: const Icon(
-                        Icons.account_balance_sharp,
-                        color: Colors.orange,
-                      ),
-                    ),
+                    // Container(
+                    //   height: 2,
+                    //   width: 40,
+                    //   color: Colors.orange,
+                    // ),
+                    // Container(
+                    //   width: 40,
+                    //   height: 40,
+                    //   decoration: BoxDecoration(
+                    //       border: Border.all(color: Colors.orange, width: 2),
+                    //       shape: BoxShape.circle),
+                    //   child: const Icon(
+                    //     Icons.account_balance_sharp,
+                    //     color: Colors.orange,
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
@@ -203,7 +261,7 @@ class _FarmerRegSecondPageState extends State<FarmerRegSecondPage> {
                           padding: EdgeInsets.symmetric(horizontal: 15),
                           decoration: BoxDecoration(
                               borderRadius:
-                              BorderRadius.all(Radius.circular(10))),
+                                  BorderRadius.all(Radius.circular(10))),
                         ),
                         decoration: InputDecoration(
                             isDense: true,
@@ -263,7 +321,7 @@ class _FarmerRegSecondPageState extends State<FarmerRegSecondPage> {
                           padding: EdgeInsets.symmetric(horizontal: 15),
                           decoration: BoxDecoration(
                               borderRadius:
-                              BorderRadius.all(Radius.circular(10))),
+                                  BorderRadius.all(Radius.circular(10))),
                         ),
                         decoration: InputDecoration(
                             isDense: true,
@@ -316,7 +374,7 @@ class _FarmerRegSecondPageState extends State<FarmerRegSecondPage> {
                           padding: EdgeInsets.symmetric(horizontal: 15),
                           decoration: BoxDecoration(
                               borderRadius:
-                              BorderRadius.all(Radius.circular(10))),
+                                  BorderRadius.all(Radius.circular(10))),
                         ),
                         // dropdownWidth: MediaQuery.of(context).size.width / 1.2,
                         decoration: InputDecoration(
@@ -404,7 +462,7 @@ class _FarmerRegSecondPageState extends State<FarmerRegSecondPage> {
                       const SizedBox(height: 10),
 
                       const Text(
-                        'Upload (Aadhar Card)',
+                        'Upload (Aadhar Card) (Optional)',
                         style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 15),
                       ),
@@ -456,18 +514,18 @@ class _FarmerRegSecondPageState extends State<FarmerRegSecondPage> {
                           _formKey.currentState!.validate();
                         },
                         validator: (text) {
-                          if (text == null || text.isEmpty) {
-                            return '*Required';
-                          } else {
-                            return null;
-                          }
+                          // if (text == null || text.isEmpty) {
+                          //   return '*Required';
+                          // } else {
+                          //   return null;
+                          // }
                         },
                       ), //Document 1
 
                       const SizedBox(height: 10),
 
                       const Text(
-                        'Upload (PAN Card)',
+                        'Upload (PAN Card) (Optional)',
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 15),
                       ),
@@ -528,11 +586,11 @@ class _FarmerRegSecondPageState extends State<FarmerRegSecondPage> {
                           _formKey.currentState!.validate();
                         },
                         validator: (text) {
-                          if (text == null || text.isEmpty) {
-                            return '*Required';
-                          } else {
-                            return null;
-                          }
+                          // if (text == null || text.isEmpty) {
+                          //   return '*Required';
+                          // } else {
+                          //   return null;
+                          // }
                         },
                       ), //Document 2
 
@@ -548,27 +606,55 @@ class _FarmerRegSecondPageState extends State<FarmerRegSecondPage> {
                                 onPressed: () {
                                   if (_formKey.currentState!.validate()) {
                                     setData();
-                                    Navigator.of(context).push(
-                                      MaterialPageRoute(
-                                        builder: (_) =>
-                                            const FarmerRegThirdPage(),
-                                      ),
-                                    );
+                                    uploadData();
+
+                                    // Navigator.pushNamed(context,
+                                    //     'registrationFarmer_SecondPage');
                                   }
                                 },
                                 style: ButtonStyle(
+                                    backgroundColor: MaterialStateProperty.all(
+                                        Colors.orange),
                                     shape: MaterialStateProperty.all<
                                             RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
                                             borderRadius:
                                                 BorderRadius.circular(25)))),
                                 child: const Text(
-                                  'Proceed',
+                                  'Submit',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 21),
                                 )),
-                          ), //Proceed Button
+                          ),
+                          // SizedBox(
+                          //   width: 150,
+                          //   height: 45,
+                          //   child: ElevatedButton(
+                          //       onPressed: () {
+                          //         if (_formKey.currentState!.validate()) {
+                          //           setData();
+                          //           Navigator.of(context).push(
+                          //             MaterialPageRoute(
+                          //               builder: (_) =>
+                          //                   const FarmerRegThirdPage(),
+                          //             ),
+                          //           );
+                          //         }
+                          //       },
+                          //       style: ButtonStyle(
+                          //           shape: MaterialStateProperty.all<
+                          //                   RoundedRectangleBorder>(
+                          //               RoundedRectangleBorder(
+                          //                   borderRadius:
+                          //                       BorderRadius.circular(25)))),
+                          //       child: const Text(
+                          //         'Proceed',
+                          //         style: TextStyle(
+                          //             fontWeight: FontWeight.bold,
+                          //             fontSize: 21),
+                          //       )),
+                          // ), //Proceed Button
 
                           SizedBox(
                             width: 150,
@@ -613,8 +699,7 @@ class _FarmerRegSecondPageState extends State<FarmerRegSecondPage> {
       final Map<String, String> headers = {};
       Dio dio = Dio(BaseOptions(
           headers: headers, connectTimeout: 8000, receiveTimeout: 8000));
-      final response =
-          await dio.get(EnvConfigs.appBaseUrl+"state/list");
+      final response = await dio.get(EnvConfigs.appBaseUrl + "state/list");
       String strTemp = response.toString();
       final StateList stateList = StateList.fromJson(response.data);
       setState(() {
@@ -632,8 +717,8 @@ class _FarmerRegSecondPageState extends State<FarmerRegSecondPage> {
       final Map<String, String> headers = {};
       Dio dio = Dio(BaseOptions(
           headers: headers, connectTimeout: 8000, receiveTimeout: 8000));
-      final response = await dio
-          .post(EnvConfigs.appBaseUrl+"city/list_by_district_id",
+      final response =
+          await dio.post(EnvConfigs.appBaseUrl + "city/list_by_district_id",
               //data: {"state_id": state_id});
               data: {"district_id": district_id.toString()});
       String strTemp = response.toString();
@@ -652,8 +737,8 @@ class _FarmerRegSecondPageState extends State<FarmerRegSecondPage> {
     try {
       final Map<String, String> headers = {};
       Dio dio = Dio(BaseOptions(headers: headers));
-      final response = await dio.get(
-          EnvConfigs.appBaseUrl+"district/list_by_state_id?state_id=$state_id");
+      final response = await dio.get(EnvConfigs.appBaseUrl +
+          "district/list_by_state_id?state_id=$state_id");
       String strTemp = response.toString();
       final DistrictList distList = DistrictList.fromJson(response.data);
       setState(() {
@@ -666,11 +751,83 @@ class _FarmerRegSecondPageState extends State<FarmerRegSecondPage> {
     }
   }
 
+  Future<void> uploadData() async {
+    getData();
+    var formData = FormData.fromMap({
+      'name': fname,
+      'email_id': email,
+      'password': password,
+      'mobile_no': mobileNo,
+      'gender': gender,
+      'address': addressFarmer,
+      'role': 'farmer',
+      // 'bank_name': bankNameController.text,
+      // 'bank_ifsc': ifscController.text,
+      // 'bank_account_number': accountController.text,
+      // 'account_holder_name': bankAccountholderNameController.text,
+      // 'bank_branch_name': branchController.text,
+      // 'bank_branch_address': bankAddController.text,
+
+      'state_id': stateId,
+      'district_id': districtId,
+      'city_id': cityId,
+      'pincode': pincode,
+      'profile_photo': ((profileImg == null || profileImg == "")
+          ? ""
+          : await MultipartFile.fromFile(profileImg.toString())),
+      'document_one': ((doc1 == null || doc1 == "" || doc1.toString() == "null")
+          ? ""
+          : await MultipartFile.fromFile(doc1.toString())),
+      'document_two': ((doc2 == null || doc2 == "" || doc2.toString() == "null")
+          ? ""
+          : await MultipartFile.fromFile(doc2.toString())),
+    });
+    print(formData.fields);
+    print(formData.files);
+    try {
+      final Map<String, String> headers = {};
+      Dio dio = Dio();
+      final response = await dio.post(EnvConfigs.appBaseReg + "register/farmer",
+          data: formData);
+      String strTemp = response.toString();
+      final res = response;
+
+      final String? resMessage = RegisterRes.fromJson(response.data).message;
+      final bool? success = RegisterRes.fromJson(response.data).success;
+
+      // Showing message response
+
+      final snackBar = SnackBar(
+        backgroundColor: Colors.green,
+        behavior: SnackBarBehavior.floating,
+        content: Text(
+          resMessage.toString(),
+        ),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      if (success == true) {
+        Future.delayed(const Duration(seconds: 1), () {
+          Navigator.pushNamedAndRemoveUntil(
+              context, 'loginPage', (Route route) => false);
+        });
+      }
+
+      log("Message");
+      log(resMessage.toString());
+
+      debugPrint("strTemp");
+      debugPrint(strTemp);
+      debugPrint("res");
+      debugPrint(res.toString());
+    } catch (e) {
+      print('e');
+      print(e);
+    }
+  }
   // fileName(){
   //    print(${file.name})
   // }
 
 //void openFile(PlatformFile file) {
 // OpenFile.open(file.path!);}
-
 }
