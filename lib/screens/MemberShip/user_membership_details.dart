@@ -562,8 +562,7 @@ class _UserMembershipDetailsState extends State<UserMembershipDetails> {
       final responce = await Dio().get(url!,
           options: Options(
               responseType: ResponseType.bytes,
-              followRedirects: false,
-              receiveTimeout: 0));
+              followRedirects: false,));
 
       final raf = file.openSync(mode: FileMode.write);
       raf.writeFromSync(responce.data);

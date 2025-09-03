@@ -999,7 +999,7 @@ class _ProfileTestScreenState extends State<ProfilePageFarmer> {
           options: Options(
               responseType: ResponseType.bytes,
               followRedirects: false,
-              receiveTimeout: 0));
+              receiveTimeout: const Duration(milliseconds: 0)));
 
       final raf = file.openSync(mode: FileMode.write);
       raf.writeFromSync(responce.data);

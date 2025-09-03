@@ -540,7 +540,7 @@ class _LogisticRegSecondPageState extends State<LogisticRegSecondPage> {
     try {
       final Map<String, String> headers = {};
       Dio dio = Dio(BaseOptions(
-          headers: headers, connectTimeout: 8000, receiveTimeout: 8000));
+          headers: headers, connectTimeout: const Duration(milliseconds: 8000), receiveTimeout: const Duration(milliseconds: 8000)));
       final response =
           await dio.get(EnvConfigs.appBaseUrl+"state/list");
       String strTemp = response.toString();
@@ -559,7 +559,7 @@ class _LogisticRegSecondPageState extends State<LogisticRegSecondPage> {
     try {
       final Map<String, String> headers = {};
       Dio dio = Dio(BaseOptions(
-          headers: headers, connectTimeout: 8000, receiveTimeout: 8000));
+          headers: headers, connectTimeout: const Duration(milliseconds: 8000), receiveTimeout: const Duration(milliseconds: 8000)));
       final response = await dio
           .post(EnvConfigs.appBaseUrl+"city/list_by_district_id",
               //data: {"state_id": state_id});
@@ -627,7 +627,7 @@ class _LogisticRegSecondPageState extends State<LogisticRegSecondPage> {
     try {
       final Map<String, String> headers = {};
       Dio dio = Dio(BaseOptions(
-          headers: headers, connectTimeout: 8000, receiveTimeout: 8000));
+          headers: headers, connectTimeout: const Duration(milliseconds: 8000), receiveTimeout: const Duration(milliseconds: 8000)));
       final response = await dio
           .post(EnvConfigs.appBaseReg+"register/logistics", data: formData);
       String strTemp = response.toString();

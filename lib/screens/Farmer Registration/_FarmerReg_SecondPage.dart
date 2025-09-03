@@ -698,7 +698,7 @@ class _FarmerRegSecondPageState extends State<FarmerRegSecondPage> {
     try {
       final Map<String, String> headers = {};
       Dio dio = Dio(BaseOptions(
-          headers: headers, connectTimeout: 8000, receiveTimeout: 8000));
+          headers: headers, connectTimeout: const Duration(milliseconds: 8000), receiveTimeout: const Duration(milliseconds: 8000)));
       final response = await dio.get(EnvConfigs.appBaseUrl + "state/list");
       String strTemp = response.toString();
       final StateList stateList = StateList.fromJson(response.data);
@@ -716,7 +716,7 @@ class _FarmerRegSecondPageState extends State<FarmerRegSecondPage> {
     try {
       final Map<String, String> headers = {};
       Dio dio = Dio(BaseOptions(
-          headers: headers, connectTimeout: 8000, receiveTimeout: 8000));
+          headers: headers, connectTimeout: const Duration(milliseconds: 8000), receiveTimeout: const Duration(milliseconds: 8000)));
       final response =
           await dio.post(EnvConfigs.appBaseUrl + "city/list_by_district_id",
               //data: {"state_id": state_id});

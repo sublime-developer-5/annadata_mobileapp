@@ -1,0 +1,2 @@
+C:/project_workspace/flutter_projects/annadata_mobileapp/android/app/.cxx/RelWithDebInfo/5j1vm282/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/project_workspace/flutter_projects/annadata_mobileapp/android/app/.cxx/RelWithDebInfo/5j1vm282/armeabi-v7a/CMakeFiles/rebuild_cache.dir

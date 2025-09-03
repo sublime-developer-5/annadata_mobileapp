@@ -468,13 +468,7 @@ class _ProductAdd_SecondPageState extends State<ProductAdd_SecondPage> {
   // Crop Image
   Future _cropImage() async {
     CroppedFile? file = await ImageCropper()
-        .cropImage(sourcePath: pickedFile!.path, aspectRatioPresets: [
-      //CropAspectRatioPreset.square,
-      //CropAspectRatioPreset.ratio3x2,
-      //CropAspectRatioPreset.original,
-      CropAspectRatioPreset.ratio4x3,
-      //CropAspectRatioPreset.ratio16x9,
-    ], uiSettings: [
+        .cropImage(sourcePath: pickedFile!.path, uiSettings: [
       //AndroidUiSettings(lockAspectRatio: false)
     ]);
 

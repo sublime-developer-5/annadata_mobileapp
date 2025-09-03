@@ -22,7 +22,7 @@ class _BannerSliderState extends State<BannerSlider> {
 
   List<Data> imagesSlider = [];
 
-  final controller = car.CarouselController();
+  final controller = car.CarouselSliderController();
 
   int current = 0;
 

@@ -1250,13 +1250,7 @@ class _ProfileEditPage extends State<ProfileEditPage> {
   // Crop Image
   Future _cropImage() async {
     CroppedFile? file = await ImageCropper()
-        .cropImage(sourcePath: pickedFile!.path, aspectRatioPresets: [
-      CropAspectRatioPreset.square,
-      CropAspectRatioPreset.ratio3x2,
-      CropAspectRatioPreset.original,
-      CropAspectRatioPreset.ratio4x3,
-      CropAspectRatioPreset.ratio16x9,
-    ], uiSettings: [
+        .cropImage(sourcePath: pickedFile!.path, uiSettings: [
       AndroidUiSettings(lockAspectRatio: false)
     ]);
 
@@ -1348,7 +1342,7 @@ class _ProfileEditPage extends State<ProfileEditPage> {
     try {
       final Map<String, String> headers = {};
       Dio dio = Dio(BaseOptions(
-          headers: headers, connectTimeout: 8000, receiveTimeout: 8000));
+          headers: headers, connectTimeout: const Duration(milliseconds: 8000), receiveTimeout: const Duration(milliseconds: 8000)));
       final response =
           await dio.get(EnvConfigs.appBaseUrl+"state/list");
       String strTemp = response.toString();
@@ -1367,7 +1361,7 @@ class _ProfileEditPage extends State<ProfileEditPage> {
     try {
       final Map<String, String> headers = {};
       Dio dio = Dio(BaseOptions(
-          headers: headers, connectTimeout: 8000, receiveTimeout: 8000));
+          headers: headers, connectTimeout: const Duration(milliseconds: 8000), receiveTimeout: const Duration(milliseconds: 8000)));
       final response = await dio
           .post(EnvConfigs.appBaseUrl+"city/list_by_district_id",
               //data: {"state_id": state_id});
@@ -1448,7 +1442,7 @@ class _ProfileEditPage extends State<ProfileEditPage> {
     try {
       final Map<String, String> headers = {};
       Dio dio = Dio(BaseOptions(
-          headers: headers, connectTimeout: 8000, receiveTimeout: 8000));
+          headers: headers, connectTimeout: const Duration(milliseconds: 8000), receiveTimeout: const Duration(milliseconds: 8000)));
       final response = await dio.post(
           EnvConfigs.appBaseUrl+"user/update",
           options: Options(headers: {'x-access-token': userToken}),
